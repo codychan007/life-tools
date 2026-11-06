@@ -19,11 +19,20 @@
 
 ## B. 危疾計劃
 
-1. **先睇每間保險公司嘅 robots.txt**：佢禁止嘅（例如宏利 `Disallow: /*.pdf$`）就**唔好下載**，只睇產品網頁（HTML）。每秒最多一個請求。
+1. **先睇每個網址所屬主機嘅 robots.txt**（PDF 主機可能同產品網頁唔同）：佢禁止嘅就**唔好下載**，只睇產品網頁（HTML）。每秒最多一個請求。已知（2026-11）：
+   - **安盛**：小冊子放喺 `hk-axa-web-2024.cdn.prismic.io`，佢嘅 robots.txt 係 `Disallow: *.pdf` → **唔好下載安盛 PDF**，只睇 `www.axa.com.hk` 產品頁。
+   - **宏利**：`Disallow: /*.pdf$`；robots.txt 對程式回 403 → 冇法確認就**全部唔抓**，喺匯報寫「宏利需人手睇」。
+   - **保誠**：`User-agent: *` 有 `Disallow: /` 但有更長嘅 `Allow: /content/dam/prudential-phkl/pdf/` → 按「最長規則優先」，小冊子 PDF 可以下載。
+   - 周大福人壽網站有時會斷線（connection reset）→ 隔幾秒再試一次，仲唔得就寫「需人手開」。
 2. 對 `data/ci/plans.json` 每個計劃：開 `sourceUrl`（產品頁）同 `termsUrl`（小冊子）。
    - 打唔開（404）、產品頁冇咗、或者寫「已停售」→ **可能已停售／換咗新版**
    - 小冊子檔名或日期變咗 → **條款可能更新**（再對一次卡上嘅疾病數目、投保年齡、等候期、多次賠償，列出唔同嘅地方）
-3. 對 `data/ci/_inventory.json` 每間公司：開佢嘅官方危疾產品列表頁，搵清單入面冇嘅**新危疾產品**。
+3. 對 `data/ci/_inventory.json` 每間公司搵清單入面冇嘅**新危疾產品**。產品列表頁多數用 JavaScript 載入，所以優先用 sitemap：
+   - 富衛：`https://www.fwd.com.hk/sitemap-pages.xml`（搵 `/zh/critical-illness/`）
+   - 永明：`https://www.sunlife.com.hk/zh-hant/sitemap.xml`（搵 `/insurance/health/critical-illness/`）
+   - 萬通：`https://www.yflife.com/sitemap.xml`（搵 `/tc/product/health/critical-illness/`）
+   - 周大福：`https://www.ctflife.com.hk/sitemap.xml`（搵 `/tc/product/health/`）
+   - 友邦、保誠、安盛、宏利、保泰：試 `https://（主機）/sitemap.xml`；搵唔到就寫「需人手睇最新產品」。
 4. 有新產品：可以喺 branch 草擬新項目（格式同 `data/ci/plans.json` 其他項目一樣），**`verified: false`**、`pricing: "quote"`（除非有官方保費表）、唔知嘅欄位寫 `null`、中文名由保險公司中文官網抄、`multiClaim` 文字要寫 `{"zh": …, "en": …}`。未核實嘅計劃正式網站唔會顯示。
 
 ## C. 強積金法定數字
