@@ -81,3 +81,7 @@
 - 下一步：Cody 做 GitHub 設定（第 2 部分）同 Cloudflare 項目 codychan-life（第 3 部分），步驟喺 `../人生規劃通-上線步驟.md`。
 - 2026-11-06：Cloudflare Pages 項目 codychan-life 上咗網（預覽版）https://codychan-life.pages.dev ，push main 就自動部署。
 - 2026-11-06：安盛 9 張卡嘅資料來自 prismic PDF（robots.txt 禁止 *.pdf）；Cody 決定保持現狀。以後唔好再下載安盛 PDF，更新只用 www.axa.com.hk 網頁。
+
+## 2026-11-06 正式公開＋改名
+- 網站改名「香港地一站式保障資訊通」（HK Protection Compass，印章「保」），網址不變；PREVIEW=False。合規部未批，Cody 決定先公開。
+- 互換完成：理財資訊通 `/tax/` 入咗目錄、`/insurance/` 301 轉嚟呢度；保障資訊兩個雲端任務已轉 life-tools。
