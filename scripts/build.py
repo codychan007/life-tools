@@ -1,5 +1,5 @@
 """
-人生規劃通：部署時執行，將網站生成到 dist/（Cloudflare Pages：Build command `python3 scripts/build.py`，output `dist`）
+保障資訊通：部署時執行，將網站生成到 dist/（Cloudflare Pages：Build command `python3 scripts/build.py`，output `dist`）
 
   python scripts/build.py          # 生成 dist/
   SITE_URL=https://example.com python scripts/build.py
@@ -32,19 +32,19 @@ HKT = dt.timezone(dt.timedelta(hours=8))
 TODAY = dt.datetime.now(HKT).date().isoformat()
 
 # ★ 合規部未批准前保持 True（搜尋器唔收錄、頁頂顯示預覽版）
-PREVIEW = True
+PREVIEW = False   # 2026-11-06 Cody 決定先公開（合規部未批，Cody 自行承擔）
 
 BYLINE = "By Cody Chan"
 IG = "codychan813"
 IG_URL = f"https://www.instagram.com/{IG}/"
-SEAL = "規"                     # 品牌印章字
+SEAL = "保"                     # 品牌印章字
 SISTER_URL = "https://codychan813.pages.dev"   # 姊妹網站：理財資訊通
 
 SITE = {
-    "zh": {"prefix": "", "html": "zh-HK", "locale": "zh_HK", "brand": "香港地一站式人生規劃通", "short": "人生規劃通",
+    "zh": {"prefix": "", "html": "zh-HK", "locale": "zh_HK", "brand": "香港地一站式保障資訊通", "short": "保障資訊通",
            "switch": "EN", "switch_label": "English version", "menu": "開啟選單", "job": "保險理財顧問",
            "sister": "理財資訊通", "sister_label": "姊妹網站", "sister_desc": "日常理財：儲錢、月薪分配、市場、優惠"},
-    "en": {"prefix": "/en", "html": "en", "locale": "en_HK", "brand": "HK Life Compass", "short": "HK Life Compass",
+    "en": {"prefix": "/en", "html": "en", "locale": "en_HK", "brand": "HK Protection Compass", "short": "HK Protection Compass",
            "switch": "中文", "switch_label": "中文版", "menu": "Open menu", "job": "Insurance and financial planning consultant",
            "sister": "HK Money Compass", "sister_label": "Sister site", "sister_desc": "Everyday money: saving, salary split, markets, card offers"},
 }
