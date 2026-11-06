@@ -1,0 +1,10 @@
+{
+ "_說明": "強積金法定數字（積金局）。積金局建議調高入息上下限（$10,500／$40,000）未落實，落實先改。",
+ "mpf": {
+  "rate": 0.05,
+  "minIncome": 7100,
+  "maxIncome": 30000,
+  "verifiedOn": "2026-11-06",
+  "sourceUrl": "https://www.mpfa.org.hk/en/mpf-system/mandatory-contributions/employees"
+ }
+}

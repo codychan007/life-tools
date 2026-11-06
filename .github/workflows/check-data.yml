@@ -1,0 +1,21 @@
+# 每次改動資料或網頁，自動檢查數據同試行生成網站；有錯會喺 GitHub 顯示紅色 ❌。
+name: Check data files
+
+on:
+  push:
+    paths: ["data/**", "scripts/**", "**/*.html", "assets/**"]
+  pull_request:
+    paths: ["data/**", "scripts/**", "**/*.html", "assets/**"]
+  workflow_dispatch: {}
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: python scripts/validate_data.py
+      - run: python scripts/validate_insurance.py   # 保障資訊（2026-11 由理財資訊通搬過嚟）
+      - run: python scripts/build.py

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Compare medical and critical illness insurance premiums | HK Life Compass</title>
+  <meta name="description" content="Enter your age and sex to see annual premiums for VHIS Standard Plans (official Health Bureau figures) and critical illness plans, benefit limits, how premiums change with age and total premiums. Factual listing with sources and update dates.">
+  <meta name="theme-color" content="#F3ECDD">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<main>
+  <div class="wrap wide stack">
+    <section class="hero">
+      <div class="kicker"><span data-seal="比"></span>Medical &amp; critical illness compare</div>
+      <h1>Same age, different plans: what does each cost a year?</h1>
+      <p><b>Medical insurance</b> reimburses actual hospital and surgery bills. <b>Critical illness insurance</b> pays a lump sum on diagnosis, to cover lost income and costs beyond medical bills. They do different jobs; it's not one or the other.</p>
+    </section>
+
+    <section class="card" id="who" aria-label="About you">
+      <h2 style="font-size:1.1rem">First, about you (used on both tabs)</h2>
+      <div class="who-grid">
+        <div class="field"><span>Age</span>
+          <div class="stepper"><button type="button" class="btn secondary" data-age="-1" aria-label="One year younger">−</button>
+            <input type="number" id="age" min="0" max="80" value="30" inputmode="numeric" aria-label="Age">
+            <button type="button" class="btn secondary" data-age="1" aria-label="One year older">+</button></div></div>
+        <div class="field"><span>Sex</span><div class="seg" id="sex"><button type="button" data-v="M" aria-selected="true">Male</button><button type="button" data-v="F" aria-selected="false">Female</button></div></div>
+        <div class="field"><span>Do you smoke?</span><div class="seg" id="smoker"><button type="button" data-v="0" aria-selected="true">No</button><button type="button" data-v="1" aria-selected="false">Yes</button></div></div>
+      </div>
+      <p class="muted mt0" style="font-size:13px">Calculated on your device only. Nothing is stored or uploaded.</p>
+    </section>
+
+    <div class="seg tabs" role="tablist" aria-label="Type of insurance">
+      <button type="button" role="tab" id="tab-med" aria-controls="panel-med" aria-selected="true">Medical</button>
+      <button type="button" role="tab" id="tab-ci" aria-controls="panel-ci" aria-selected="false">Critical illness</button>
+    </div>
+
+    <section id="panel-med" role="tabpanel" aria-labelledby="tab-med" class="stack">
+      <div class="card">
+        <div class="field"><span>Ward class you want</span>
+          <div class="chips" id="ward"><button type="button" class="chip" data-v="all" aria-pressed="true">All</button><button type="button" class="chip" data-v="standard" aria-pressed="false">Standard (ward)</button><button type="button" class="chip" data-v="semi-private" aria-pressed="false">Semi-private</button><button type="button" class="chip" data-v="private" aria-pressed="false">Private</button><button type="button" class="chip" data-v="any" aria-pressed="false">No ward specified</button></div></div>
+        <div class="field"><span>The most deductible you'd accept</span>
+          <div class="chips" id="ded"><button type="button" class="chip" data-v="0" aria-pressed="true">$0</button><button type="button" class="chip" data-v="20000" aria-pressed="false">Up to $20k</button><button type="button" class="chip" data-v="50000" aria-pressed="false">Up to $50k</button><button type="button" class="chip" data-v="100000" aria-pressed="false">Up to $100k</button></div>
+          <small class="muted">Each plan starts with the highest deductible up to this amount; you can change it on the card. A higher deductible usually means a lower premium; you pay this amount yourself first when you're admitted.</small></div>
+              </div>
+      <div id="med-intro"></div>
+      <div class="list-head"><b id="med-count"></b>
+        <label class="sort">Sort within insurer <select id="med-sort"><option value="name">Plan name</option><option value="premium">Annual premium (low to high)</option><option value="premium-desc">Annual premium (high to low)</option><option value="limit">Annual benefit limit (high to low)</option></select></label></div>
+      <div id="med-list" class="dir"></div>
+    </section>
+
+    <section id="panel-ci" role="tabpanel" aria-labelledby="tab-ci" class="stack" hidden>
+      <div class="callout warn"><b>Covering more illnesses doesn't mean better cover.</b> Insurers may define the same illness and its payout conditions differently; the policy terms prevail.</div>
+      <div class="card">
+        <div class="field"><span>Type of critical illness cover</span>
+          <div class="chips" id="ci-type"><button type="button" class="chip" data-v="all" aria-pressed="true">All</button><button type="button" class="chip" data-v="renewable" aria-pressed="false">Renewable term</button><button type="button" class="chip" data-v="level" aria-pressed="false">Level-premium term</button><button type="button" class="chip" data-v="savings" aria-pressed="false">Savings</button></div>
+          <small class="muted">Renewable: renewed every year or few years, premium rises with age. Level premium: fixed during the payment term. Savings: whole-life cover with cash value. Each card shows the sum insured listed in the premium table.</small></div>
+      </div>
+      <div id="ci-intro"></div>
+      <div class="list-head"><b id="ci-count"></b>
+        <label class="sort">Sort within insurer <select id="ci-sort"><option value="name">Plan name</option><option value="premium">Annual premium (low to high)</option><option value="cap">Total payout limit (high to low)</option></select></label></div>
+      <div id="ci-list" class="dir"></div>
+    </section>
+
+    <section class="card" id="compare-box" aria-live="polite">
+      <h2>Side by side</h2>
+      <p class="muted mt0" id="compare-hint">Tap "Add to compare" on up to 3 plans above.</p>
+      <div id="compare-table" class="table-scroll"></div>
+      <div id="trend" class="hidden">
+        <h3 style="margin-top:18px">How premiums change with age</h3>
+        <div class="chips" id="trend-end" style="margin-bottom:8px"><button type="button" class="chip" data-v="65" aria-pressed="true">To age 65</button><button type="button" class="chip" data-v="85" aria-pressed="false">To age 85</button></div>
+        <div id="trend-chart" class="chart"></div>
+        <div id="trend-table" class="table-scroll"></div>
+        <p class="muted" style="font-size:13px">Based on the insurer's current premium table, without future increases. Medical premiums usually change with age and may change on renewal.</p>
+      </div>
+    </section>
+
+    <section class="card" id="combo">
+      <h2>Medical + critical illness: the total each year</h2>
+      <div class="grid cols-2">
+        <label class="field"><span>Medical plan</span><select id="combo-med"></select></label>
+        <label class="field"><span>Critical illness plan</span><select id="combo-ci"></select></label>
+      </div>
+      <label class="field"><span>Monthly salary (optional)</span><div class="input-money"><input type="text" id="salary" placeholder="e.g. 25,000" aria-label="Monthly salary"></div></label>
+      <div id="combo-result"></div>
+    </section>
+
+    <div class="disclaimer"><strong>Important:</strong> Results are for reference only and are not insurance, investment or tax advice; premiums are subject to the insurer's latest figures. Comparisons list factual information only, sorted by the value you choose, and do not mean any product is better or more suitable for you. Items marked "Sample" are not real products. Coverage, exclusions and payout conditions are subject to the policy terms.</div>
+    <div data-disclaimer="tool"></div>
+    <div data-cta></div>
+  </div>
+</main>
+<script type="module" src="/assets/js/compare.js"></script>
+</body>
+</html>

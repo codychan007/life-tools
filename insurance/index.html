@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>香港醫療費用 2026：公立醫院收費、醫療通脹、癌症數字｜香港地一站式人生規劃通</title>
+  <meta name="description" content="香港公立醫院 2026 年新收費、醫療通脹預測、私家醫院手術收費差距、最新癌症統計同政府醫療政策更新，每項附官方來源同資料日期。">
+  <meta name="theme-color" content="#F3ECDD">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<main>
+  <div class="wrap stack">
+    <section class="hero">
+      <div class="kicker"><span data-seal="保"></span>保障資訊</div>
+      <h1>睇病要幾錢？醫療費又升緊幾多？</h1>
+      <p>用真實數字了解香港醫療開支同政策變化。每項數字都附來源同資料日期，並會定期更新。</p>
+    </section>
+
+    <div class="disclaimer"><strong>注意：</strong>本頁資料只作一般教育用途，不構成任何保險或醫療建議，亦不推介任何保險產品。實際醫療費用因人、因醫院、因病情而異。</div>
+
+    <section class="card" id="inflation"></section>
+
+    <section class="card tint">
+      <h2>今日嘅醫療費，將來要幾錢？</h2>
+      <label class="field"><span>今日嘅醫療開支</span>
+        <div class="input-money"><input type="text" id="cost" value="100,000"></div>
+        <small class="muted">例如一次私家醫院手術嘅總賬單</small></label>
+      <div class="grid cols-2">
+        <label class="field"><span>假設每年醫療通脹（%）</span><input type="number" id="infl" step="0.5" inputmode="decimal" value="{{INFL_DEFAULT}}"></label>
+        <label class="field"><span>幾多年後？</span><input type="number" id="yrs" value="20" min="1" max="50" inputmode="numeric"></label>
+      </div>
+      <div class="result-line" id="infl-result"></div>
+      <p class="muted" style="font-size:13px;margin:8px 0 0">計法：今日費用 × (1 + 醫療通脹)^年數。只係按假設升幅推算，唔係預測。</p>
+    </section>
+
+    <section class="card" id="public-fees"></section>
+    <section class="card" id="private-costs"></section>
+    <section class="card" id="cancer"></section>
+    <section class="card" id="policy"></section>
+    <section class="card" id="basics"></section>
+
+    <div data-cta></div>
+  </div>
+</main>
+<script type="module" src="/assets/js/insurance.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hong Kong medical costs 2026: public hospital fees, medical inflation, cancer figures | HK Life Compass</title>
+  <meta name="description" content="Hong Kong's new 2026 public hospital fees, medical inflation forecasts, the price gap for private hospital procedures, the latest cancer statistics and healthcare policy updates, each with its official source and date.">
+  <meta name="theme-color" content="#F3ECDD">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<main>
+  <div class="wrap stack">
+    <section class="hero">
+      <div class="kicker"><span data-seal="保"></span>Protection facts</div>
+      <h1>What does getting sick cost, and how fast is it rising?</h1>
+      <p>Real figures on Hong Kong medical costs and policy changes. Every number comes with its source and date, and is updated regularly.</p>
+    </section>
+
+    <div class="disclaimer"><strong>Note:</strong> This page is for general education only. It is not insurance or medical advice and does not recommend any insurance product. Actual medical costs vary by person, hospital and condition.</div>
+
+    <section class="card" id="inflation"></section>
+
+    <section class="card tint">
+      <h2>What will today's medical bill cost in the future?</h2>
+      <label class="field"><span>Medical cost today</span>
+        <div class="input-money"><input type="text" id="cost" value="100,000"></div>
+        <small class="muted">For example, the total bill for one private hospital operation</small></label>
+      <div class="grid cols-2">
+        <label class="field"><span>Assumed yearly medical inflation (%)</span><input type="number" id="infl" step="0.5" inputmode="decimal" value="{{INFL_DEFAULT}}"></label>
+        <label class="field"><span>How many years from now?</span><input type="number" id="yrs" value="20" min="1" max="50" inputmode="numeric"></label>
+      </div>
+      <div class="result-line" id="infl-result"></div>
+      <p class="muted" style="font-size:13px;margin:8px 0 0">Method: cost today × (1 + medical inflation)^years. A projection from an assumed rate, not a forecast.</p>
+    </section>
+
+    <section class="card" id="public-fees"></section>
+    <section class="card" id="private-costs"></section>
+    <section class="card" id="cancer"></section>
+    <section class="card" id="policy"></section>
+    <section class="card" id="basics"></section>
+
+    <div data-cta></div>
+  </div>
+</main>
+<script type="module" src="/assets/js/insurance.js"></script>
+</body>
+</html>

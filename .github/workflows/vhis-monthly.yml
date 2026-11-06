@@ -1,0 +1,42 @@
+# 每月 1 號自動下載醫務衞生局「自願醫保標準計劃標準保費一覽表」官方 Excel：
+#   有改動 → 開一個 Pull Request（GitHub 會電郵通知你），你睇完摘要撳「Merge」先會上網
+#   冇改動 → 乜都唔做
+# 啟用前：GitHub repo → Settings → Actions → General：
+#   Workflow permissions 揀 "Read and write permissions"，並剔 "Allow GitHub Actions to create and approve pull requests"
+name: Monthly VHIS Standard Plan premiums
+
+on:
+  schedule:
+    - cron: "0 2 1 * *"      # UTC 02:00 = 香港 10:00，每月 1 號
+  workflow_dispatch: {}      # 亦可以喺 Actions 頁面手動按 "Run workflow"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - id: fetch
+        run: |
+          python scripts/fetch_vhis_standard.py | tee fetch.log
+          python scripts/validate_data.py
+          echo "summary=$(tail -n 1 fetch.log)" >> "$GITHUB_OUTPUT"
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: data/vhis-standard-monthly
+          commit-message: "data: VHIS Standard Plan premiums (monthly)"
+          title: "每月更新：自願醫保標準計劃保費"
+          body: |
+            自動下載醫務衞生局官方 Excel 並轉換：${{ steps.fetch.outputs.summary }}
+
+            請你：
+            1. 撳 "Files changed" 睇下有冇新增／刪除計劃、保費變幅係咪合理
+            2. 冇問題就撳 "Merge pull request"，Cloudflare 會自動更新網站
+            3. 有懷疑就打開官方 Excel 對一對：https://www.vhis.gov.hk/tc/consumer_corner/list-plans.html
+          add-paths: data/medical/vhis-standard.json

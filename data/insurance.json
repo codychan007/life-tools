@@ -1,0 +1,368 @@
+{
+  "_說明": "保障資訊頁嘅所有數字。每項都要有 source、sourceUrl、asOf、reviewBy（YYYY-MM-DD）。過咗 reviewBy 網站會顯示「資料或已過時」。policy.items 係最新政策（每月 1 號自動更新），舊嘅會移去 policy.archive（只保留最近 12 項）。其他數字每半年（1 月 1 號、7 月 1 號）自動更新。改完請執行 python scripts/validate_insurance.py。 英文版：每段文字都要有對應嘅 *_en 欄位（例如 title_en、label_en、rows_en、points_en、tips_en），數字同日期要同中文一致。",
+  "medicalInflation": {
+    "title": "醫療通脹：每年大約升幾多？",
+    "title_en": "Medical inflation: how much do costs rise each year?",
+    "defaultRate": 9,
+    "note": "「醫療成本趨勢」係顧問公司預計僱主醫療計劃每人成本嘅升幅，唔等同個人保費升幅，亦唔等同一般通脹（CPI）。唔同機構嘅研究方法同樣本唔同，數字唔可以直接比較。",
+    "note_en": "“Medical cost trend” is a consultancy's forecast of the rise in the per-person cost of employer medical plans. It is not the same as an individual's premium increase or general inflation (CPI). Studies use different methods and samples, so the figures can't be compared directly.",
+    "items": [
+      {
+        "label": "Aon：香港醫療成本趨勢（2027 年預測）",
+        "label_en": "Aon: Hong Kong medical cost trend (2027 forecast)",
+        "value": "9%",
+        "source": "Aon《2027 Global Medical Trend Rates Report》新聞稿（2026-10-12）",
+        "source_en": "Aon 2027 Global Medical Trend Rates Report press release (2026-10-12)",
+        "sourceUrl": "https://www.zawya.com/en/press-release/asia-press-releases/apac-medical-cost-growth-projected-to-slow-to-9.7-in-2027-aon-report-1588842",
+        "asOf": "2026-10（2026-10-19 重新核對）",
+        "asOf_en": "Oct 2026 (re-checked 2026-10-19)",
+        "reviewBy": "2027-01-31",
+        "verified": false
+      },
+      {
+        "label": "Aon：香港醫療成本趨勢（2026 年預測）",
+        "label_en": "Aon: Hong Kong medical cost trend (2026 forecast)",
+        "value": "9.0%",
+        "source": "Aon《2026 Global Medical Trend Rates Report》（2025-10）",
+        "source_en": "Aon 2026 Global Medical Trend Rates Report (Oct 2025)",
+        "sourceUrl": "https://www.aon.com/apac/in-the-press/asia-newsroom/2025/apac-employee-medical-plan-costs-to-stabilise-in-2026-after-two-years-of-sharp-increase-aon",
+        "asOf": "2025-10（2026-10-19 重新核對，Aon 2027 報告亦列 2026 年為 9%）",
+        "asOf_en": "Oct 2025 (re-checked 2026-10-19; Aon's 2027 report also lists 9% for 2026)",
+        "reviewBy": "2027-01-31",
+        "verified": false
+      },
+      {
+        "label": "WTW：香港醫療保險成本升幅（2026 年預測）",
+        "label_en": "WTW: Hong Kong medical cost increase (2026 forecast)",
+        "value": "9.9%",
+        "source": "WTW《Global Medical Trends Survey》新聞稿（2025-11）",
+        "source_en": "WTW Global Medical Trends Survey press release (Nov 2025)",
+        "sourceUrl": "https://www.wtwco.com/en-hk/news/2025/11/double-digit-medical-cost-increases-projected-to-persisit-into-2026-and-beyond-in-asia-pacific",
+        "asOf": "2025-11（2026-10-19 重新核對，暫未見 WTW 2027 年版本）",
+        "asOf_en": "Nov 2025 (re-checked 2026-10-19; no 2027 WTW edition seen yet)",
+        "reviewBy": "2027-01-31",
+        "verified": false
+      }
+    ]
+  },
+  "publicFees": {
+    "title": "公立醫院收費（2026 年 1 月 1 日起）",
+    "title_en": "Public hospital fees (from 1 January 2026)",
+    "intro": "公營醫療收費改革首階段已於 2026 年 1 月 1 日實施。以下係「合資格人士」收費。",
+    "intro_en": "The first phase of the public healthcare fees reform took effect on 1 January 2026. These are the fees for Eligible Persons.",
+    "rows": [
+      [
+        "急症室（每次）",
+        "$400",
+        "分流第 I 類（危殆）及第 II 類（危急）可獲豁免"
+      ],
+      [
+        "急症病床（每日）",
+        "$300",
+        "取消原有入院費"
+      ],
+      [
+        "療養／復康、護養、精神科病床（每日）",
+        "$200",
+        ""
+      ],
+      [
+        "日間程序及治療（每日）",
+        "$250",
+        "取消入院費"
+      ],
+      [
+        "專科門診（每次）",
+        "$250",
+        "藥物每項 $20，每項最多 4 星期"
+      ],
+      [
+        "普通科／家庭醫學門診（每次）",
+        "$150",
+        "藥物每項 $5，每項最多 4 星期"
+      ],
+      [
+        "非緊急影像：超聲波、乳房 X 光",
+        "$250",
+        ""
+      ],
+      [
+        "非緊急影像：電腦掃描（CT）、磁力共振（MRI）",
+        "$500",
+        ""
+      ],
+      [
+        "全年醫療費用上限",
+        "$10,000",
+        "毋須經濟審查；超出部分可申請豁免"
+      ]
+    ],
+    "rows_en": [
+      [
+        "Accident & Emergency (per attendance)",
+        "$400",
+        "Waived for triage category I (critical) and II (emergency)"
+      ],
+      [
+        "Acute bed (per day)",
+        "$300",
+        "Admission fee abolished"
+      ],
+      [
+        "Convalescent / rehabilitation, infirmary and psychiatric bed (per day)",
+        "$200",
+        ""
+      ],
+      [
+        "Day procedures and treatment (per day)",
+        "$250",
+        "Admission fee abolished"
+      ],
+      [
+        "Specialist outpatient (per attendance)",
+        "$250",
+        "Drugs $20 per item, up to 4 weeks per item"
+      ],
+      [
+        "General / family medicine outpatient (per attendance)",
+        "$150",
+        "Drugs $5 per item, up to 4 weeks per item"
+      ],
+      [
+        "Non-urgent imaging: ultrasound, mammogram",
+        "$250",
+        ""
+      ],
+      [
+        "Non-urgent imaging: CT and MRI scans",
+        "$500",
+        ""
+      ],
+      [
+        "Annual cap on medical charges",
+        "$10,000",
+        "No means test; amounts above the cap can be waived on application"
+      ]
+    ],
+    "source": "政府簡報（2025-03-25）、HK01 整理、《行政長官 2026 年施政報告》第 303 段",
+    "source_en": "Government briefing (2025-03-25), HK01 summary, and the Chief Executive's 2026 Policy Address, paragraph 303",
+    "sourceUrl": "https://gia.info.gov.hk/general/202503/25/P2025032500394_490027_1_1742898124325.pdf",
+    "extraSources": [
+      {
+        "name": "HK01：公立醫院收費懶人包",
+        "name_en": "HK01: public hospital fees explained (in Chinese)",
+        "url": "https://www.hk01.com/article/60223141"
+      },
+      {
+        "name": "2026 施政報告全文（醫療部分）",
+        "name_en": "2026 Policy Address full text (healthcare section)",
+        "url": "https://www.info.gov.hk/gia/general/202609/16/P2026091600271.htm"
+      }
+    ],
+    "asOf": "2026-01-01 起生效（2026-10-19 重新核對，收費未見改動）",
+    "asOf_en": "In effect from 2026-01-01 (re-checked 2026-10-19; no fee changes seen)",
+    "reviewBy": "2027-01-31",
+    "verified": false
+  },
+  "privateCosts": {
+    "title": "私家醫院：同一個手術，價錢可以差好遠",
+    "title_en": "Private hospitals: the same operation can cost very different amounts",
+    "intro": "私家醫院會公布常見手術嘅「過往收費統計」。第 50 百分位（P50）即係一半病人嘅總賬單低於呢個數；第 90 百分位（P90）即係九成病人低於呢個數。",
+    "intro_en": "Private hospitals publish “historical bill statistics” for common procedures. The 50th percentile (P50) means half of patients paid a total bill below this amount; the 90th percentile (P90) means nine in ten paid less.",
+    "highlights": [
+      {
+        "label": "住院痔瘡切除術：唔同私家醫院嘅 P50 總收費",
+        "label_en": "Inpatient haemorrhoidectomy: P50 total bill at different private hospitals",
+        "value": "$33,881 – $85,387",
+        "sub": "最高同最低相差 152%",
+        "sub_en": "152% gap between the highest and lowest",
+        "source": "消費者委員會私營醫療服務研究（2025-03-06），經 HK01 報道",
+        "source_en": "Consumer Council study on private healthcare services (2025-03-06), as reported by HK01",
+        "sourceUrl": "https://www.hk01.com/社會新聞/60216956/消委會調查私營醫療收費-切痔瘡費用差異152-近半投訴涉收費",
+        "asOf": "2025-03（2026-10-19 重新核對，未見較新數字）",
+        "asOf_en": "Mar 2025 (re-checked 2026-10-19; no newer figures seen)",
+        "reviewBy": "2027-01-31",
+        "verified": false
+      }
+    ],
+    "_表格說明": "table 可加入各醫院網站「過往收費統計」嘅數字：{\"procedure\",\"hospital\",\"p50\",\"p90\",\"period\",\"sourceUrl\"}，填好 p50 先會顯示。",
+    "table": []
+  },
+  "cancer": {
+    "title": "癌症：香港平均每日約 104 人確診",
+    "title_en": "Cancer: about 104 people diagnosed every day in Hong Kong",
+    "items": [
+      {
+        "label": "2023 年全港癌症新症",
+        "label_en": "New cancer cases in Hong Kong, 2023",
+        "value": "37,953 宗",
+        "value_en": "37,953 cases",
+        "sub": "比 2022 年多 7.3%，平均每日約 104 宗",
+        "sub_en": "Up 7.3% on 2022, about 104 a day"
+      },
+      {
+        "label": "2023 年因癌症離世",
+        "label_en": "Cancer deaths, 2023",
+        "value": "14,867 人",
+        "value_en": "14,867 people",
+        "sub": "約佔全港死亡人數四分一",
+        "sub_en": "About a quarter of all deaths in Hong Kong"
+      },
+      {
+        "label": "最常見癌症：肺癌",
+        "label_en": "Most common cancer: lung",
+        "value": "6,111 宗",
+        "value_en": "6,111 cases",
+        "sub": "其次係乳癌 5,603 宗、大腸癌 5,467 宗",
+        "sub_en": "Followed by breast (5,603) and colorectal (5,467)"
+      },
+      {
+        "label": "最致命癌症：肺癌",
+        "label_en": "Deadliest cancer: lung",
+        "value": "3,880 人",
+        "value_en": "3,880 deaths",
+        "sub": "其次係大腸癌 2,266 人、肝癌 1,408 人",
+        "sub_en": "Followed by colorectal (2,266) and liver (1,408)"
+      }
+    ],
+    "source": "衞生署癌症網上資源中心：香港癌症統計概覽（2023 年數據，為目前已公布最新年份）",
+    "source_en": "Department of Health, Centre for Cancer Information: Overview of Hong Kong cancer statistics (2023 data, the latest published year)",
+    "sourceUrl": "https://www.cancer.gov.hk/tc/hong_kong_cancer/overview_of_cancer_statistics_in_hong_kong.html",
+    "sourceUrl_en": "https://www.cancer.gov.hk/en/hong_kong_cancer/overview_of_cancer_statistics_in_hong_kong.html",
+    "asOf": "2023 年數據（2026-10-19 核實為最新）",
+    "asOf_en": "2023 data (confirmed as the latest on 2026-10-19)",
+    "reviewBy": "2027-01-31",
+    "verified": true
+  },
+  "policy": {
+    "title": "政府醫療政策：最近有咩新嘢？",
+    "title_en": "Government healthcare policy: what's new?",
+    "items": [
+      {
+        "date": "2026-10-23",
+        "title": "社區藥房計劃病人配對啟動；基層醫療共同護理網絡診症共付費調整",
+        "title_en": "Community Pharmacy Programme patient pairing starts; Primary Healthcare Co-care Network co-payment adjustments",
+        "points": [
+          "社區藥房計劃（社區）10 月底起試行病人配對，先在東區、油尖旺、沙田、元朗四區，每區 5 間、共 20 間指定社區藥房；預計明年第四季推展至全部 18 區",
+          "共同護理網絡治療階段診症共付費由 11 月 1 日起按年調整：現有 1 239 個服務點中，1 022 個（82.5%）維持不變，28 個減價，189 個加價，整體加幅 3.7%",
+          "篩查階段共付費上限：心血管疾病風險因素篩查不多於 $120，慢性乙型肝炎篩查不多於 $180"
+        ],
+        "points_en": [
+          "The Community Pharmacy Programme (Community) starts a pilot of patient pairing at the end of October in four districts (Eastern, Yau Tsim Mong, Sha Tin and Yuen Long), with 5 designated community pharmacies in each, 20 in total; it is to extend to all 18 districts in the fourth quarter of next year",
+          "Annual adjustments to Primary Healthcare Co-care Network treatment-phase consultation co-payments take effect on November 1: of 1,239 service points, 1,022 (82.5%) keep their fees unchanged, 28 reduce them and 189 increase them, with an overall increase of 3.7%",
+          "Screening-phase co-payment caps: not more than $120 for cardiovascular disease risk factor screening and not more than $180 for chronic hepatitis B screening"
+        ],
+        "source": "醫務衞生局新聞公報（2026 年 10 月 23 日）",
+        "source_en": "Health Bureau press release (October 23, 2026)",
+        "sourceUrl": "https://www.info.gov.hk/gia/general/202610/23/P2026102300316.htm"
+      },
+      {
+        "date": "2026-09-16",
+        "title": "2026 施政報告：公營醫療",
+        "title_en": "2026 Policy Address: public healthcare",
+        "points": [
+          "全年醫療費用上限 $10,000，毋須經濟審查；全額醫療費用減免受惠人數由每年少於 1.4 萬人增至逾 25 萬人",
+          "醫管局藥物名冊新增 16 種藥物；撒瑪利亞基金新增 53 項藥物及自費醫療裝置",
+          "醫管局目標五年內將指定專科穩定新症輪候時間減半，2027-28 年度先減 10%",
+          "年底前推出社區藥房計劃，首階段涵蓋東區、油尖旺、元朗、沙田"
+        ],
+        "points_en": [
+          "Annual medical charges capped at $10,000 with no means test; people receiving full medical fee waivers to rise from under 14,000 a year to over 250,000",
+          "16 drugs added to the Hospital Authority Drug Formulary; 53 drugs and self-financed medical devices added to the Samaritan Fund",
+          "The Hospital Authority aims to halve waiting times for stable new cases in designated specialties within five years, starting with a 10% cut in 2027-28",
+          "A community pharmacy programme to launch by year-end, first covering Eastern, Yau Tsim Mong, Yuen Long and Sha Tin"
+        ],
+        "source": "《行政長官 2026 年施政報告》全文（九）第 298–303 段",
+        "source_en": "The Chief Executive's 2026 Policy Address, full text (Part IX), paragraphs 298–303",
+        "sourceUrl": "https://www.info.gov.hk/gia/general/202609/16/P2026091600271.htm"
+      },
+      {
+        "date": "2026-09-16",
+        "title": "私營醫療收費透明度",
+        "title_en": "Price transparency in private healthcare",
+        "points": [
+          "政府計劃於 2026 年底前向立法會提交規例，要求私營醫療機構提高收費透明度，並擬備價目資訊、服務費用預算及收費統計嘅實務守則草擬本"
+        ],
+        "points_en": [
+          "The Government plans to submit regulations to the Legislative Council by the end of 2026 requiring private healthcare facilities to improve price transparency, and is preparing draft codes of practice on price information, fee budgets and fee statistics"
+        ],
+        "source": "《行政長官 2026 年施政報告》第 304 段",
+        "source_en": "The Chief Executive's 2026 Policy Address, paragraph 304",
+        "sourceUrl": "https://www.info.gov.hk/gia/general/202609/16/P2026091600271.htm"
+      }
+    ],
+    "asOf": "2026-11-01",
+    "reviewBy": "2026-12-11",
+    "archive": [
+      {
+        "date": "2026-01-01",
+        "title": "公營醫療收費改革首階段實施",
+        "title_en": "First phase of the public healthcare fees reform takes effect",
+        "points": [
+          "急症室收費 $400（危殆及危急個案豁免）、專科門診 $250、普通科門診 $150；設全年 $10,000 收費上限"
+        ],
+        "points_en": [
+          "A&E $400 (critical and emergency cases waived), specialist outpatient $250, general outpatient $150; annual cap of $10,000"
+        ],
+        "source": "政府簡報",
+        "source_en": "Government briefing",
+        "sourceUrl": "https://gia.info.gov.hk/general/202503/25/P2025032500394_490027_1_1742898124325.pdf"
+      }
+    ]
+  },
+  "basics": {
+    "title": "四種基本保障，各自解決咩問題？",
+    "title_en": "Four types of basic protection, and what each one covers",
+    "items": [
+      {
+        "icon": "🏥",
+        "name": "醫療",
+        "name_en": "Medical",
+        "solves": "住院、手術、檢查嘅賬單",
+        "solves_en": "Bills for hospital stays, operations and tests",
+        "note": "一般按實際開支賠償（有上限）。",
+        "note_en": "Usually reimburses actual costs (up to limits)."
+      },
+      {
+        "icon": "🎗️",
+        "name": "危疾",
+        "name_en": "Critical illness",
+        "solves": "確診嚴重疾病後嘅收入損失、康復開支",
+        "solves_en": "Lost income and recovery costs after a serious illness is diagnosed",
+        "note": "一般係確診後一筆過賠償，用途自己決定。",
+        "note_en": "Usually pays a lump sum on diagnosis, to use as you choose."
+      },
+      {
+        "icon": "🦺",
+        "name": "意外",
+        "name_en": "Accident",
+        "solves": "意外受傷嘅醫療費、傷殘",
+        "solves_en": "Medical costs and disability from accidental injury",
+        "note": "只保意外，唔保疾病。",
+        "note_en": "Covers accidents only, not illness."
+      },
+      {
+        "icon": "🏠",
+        "name": "人壽",
+        "name_en": "Life",
+        "solves": "萬一離世，屋企人嘅生活費、債務",
+        "solves_en": "Living costs and debts for your family if you die",
+        "note": "有人靠你收入生活先特別重要。",
+        "note_en": "Especially important if others depend on your income."
+      }
+    ],
+    "tips": [
+      "公司醫療好有用，但轉工、失業或者退休時就會冇咗，亦可能有賠償上限。",
+      "自願醫保（VHIS）係政府訂立標準嘅個人醫療保險框架；合資格保費可申請稅務扣除，扣除額上限每名受保人每年 $8,000（稅務局，2025/26 課稅年度）。注意：$8,000 係喺應課稅入息入面扣減嘅金額，唔係直接少交 $8,000 稅；實際慳到幾多視乎你嘅稅率，例如邊際稅率 17% 最多慳 $1,360。",
+      "睇保障唔係「越多越好」，而係先睇清自己有咩、缺咩、預算幾多。"
+    ],
+    "tips_en": [
+      "Employer medical cover is useful, but it ends when you change jobs, lose your job or retire, and it may have benefit limits.",
+      "The Voluntary Health Insurance Scheme (VHIS) is a government framework of standards for individual medical insurance. Qualifying premiums can be claimed as a tax deduction, capped at $8,000 per insured person per year (Inland Revenue Department, 2025/26 year of assessment). Note: the $8,000 is deducted from your taxable income; it is not $8,000 less tax. What you actually save depends on your tax rate. At a 17% marginal rate, the most you save is $1,360.",
+      "More cover isn't always better. Start with what you already have, what's missing and what you can afford."
+    ],
+    "source": "一般保險知識整理；自願醫保資料請以醫務衞生局及稅務局最新公布為準",
+    "source_en": "General insurance knowledge; for VHIS details, the latest announcements from the Health Bureau and the Inland Revenue Department prevail",
+    "sourceUrl": "https://www.vhis.gov.hk/"
+  }
+}

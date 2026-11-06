@@ -1,0 +1,713 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>靈活計劃保費核實清單</title>
+<style>body{font:15px/1.5 system-ui,sans-serif;margin:16px;max-width:1100px}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #ddd;padding:6px;text-align:left;vertical-align:top}
+small{color:#666}tr.ok{background:#eef7ea}tr.bad{background:#fbe5e1}.bar{position:sticky;top:0;background:#fff;padding:8px 0;border-bottom:2px solid #333}</style></head><body>
+<div class="bar"><b>保費核實清單</b>（232 項；每間公司抽 2 個計劃 × 30／45／60 歲，非吸煙年繳基本計劃）<br>
+做法：撳「開 PDF」→ 搵「年繳」表、對應年齡 → 對男、女兩個數 → 剔「啱」或「唔啱」。剔嘅結果只存喺你部機。
+<button id="copy">複製結果俾 Claude</button> <span id="sum"></span></div>
+<table><tr><th>公司</th><th>計劃・選項</th><th>年齡</th><th>男（網站）</th><th>女（網站）</th><th>官方</th><th>結果</th></tr>
+<tr data-id="vhis-f00022-1|f00022-02-000-03|30"><td>友邦保險（國際）有限公司</td><td>AIA自願醫保靈活計劃・半私家房<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>9,452.80</td><td>10,473.60</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00022/F00022-02-000-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00022-1|f00022-02-000-03|45"><td>友邦保險（國際）有限公司</td><td>AIA自願醫保靈活計劃・半私家房<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>16,349.60</td><td>19,041.60</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00022/F00022-02-000-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00022-1|f00022-02-000-03|60"><td>友邦保險（國際）有限公司</td><td>AIA自願醫保靈活計劃・半私家房<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>33,960.00</td><td>29,148.80</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00022/F00022-02-000-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00081-4|f00081-04-000-01|30"><td>友邦保險（國際）有限公司</td><td>AIA自願醫保睿選計劃<br><small>$30,000 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>4,440.00</td><td>4,440.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00081/F00081-04-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00081-4|f00081-04-000-01|45"><td>友邦保險（國際）有限公司</td><td>AIA自願醫保睿選計劃<br><small>$30,000 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>7,000.00</td><td>7,000.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00081/F00081-04-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00081-4|f00081-04-000-01|60"><td>友邦保險（國際）有限公司</td><td>AIA自願醫保睿選計劃<br><small>$30,000 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>17,144.00</td><td>17,144.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00081/F00081-04-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00017-21|f00017-03-001-04|30"><td>安盛金融保險（香港）有限公司</td><td>真智安心醫療保障・至尊+額外醫療附加保障<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>17,641.00</td><td>21,529.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00017/F00017-03-001-04-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00017-21|f00017-03-001-04|45"><td>安盛金融保險（香港）有限公司</td><td>真智安心醫療保障・至尊+額外醫療附加保障<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>27,889.00</td><td>33,761.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00017/F00017-03-001-04-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00017-21|f00017-03-001-04|60"><td>安盛金融保險（香港）有限公司</td><td>真智安心醫療保障・至尊+額外醫療附加保障<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>54,254.00</td><td>58,181.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00017/F00017-03-001-04-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00034-14|f00034-08-000-05|30"><td>安盛金融保險（香港）有限公司</td><td>AXA安盛智尊守慧醫療保障・優尚<br><small>$20,000 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>11,427.00</td><td>11,427.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00034/F00034-08-000-05-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00034-14|f00034-08-000-05|45"><td>安盛金融保險（香港）有限公司</td><td>AXA安盛智尊守慧醫療保障・優尚<br><small>$20,000 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>18,928.00</td><td>18,928.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00034/F00034-08-000-05-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00034-14|f00034-08-000-05|60"><td>安盛金融保險（香港）有限公司</td><td>AXA安盛智尊守慧醫療保障・優尚<br><small>$20,000 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>38,641.00</td><td>38,641.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00034/F00034-08-000-05-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00018-23|f00018-01-001-03|30"><td>安盛金融有限公司</td><td>真智安心醫療保障・標準+額外醫療附加保障<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>4,257.00</td><td>5,187.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00018/F00018-01-001-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00018-23|f00018-01-001-03|45"><td>安盛金融有限公司</td><td>真智安心醫療保障・標準+額外醫療附加保障<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>6,756.00</td><td>8,173.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00018/F00018-01-001-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00018-23|f00018-01-001-03|60"><td>安盛金融有限公司</td><td>真智安心醫療保障・標準+額外醫療附加保障<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>13,741.00</td><td>14,298.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00018/F00018-01-001-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00018-25|f00018-02-001-03|30"><td>安盛金融有限公司</td><td>真智安心醫療保障・特級+額外醫療附加保障<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>8,967.00</td><td>10,953.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00018/F00018-02-001-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00018-25|f00018-02-001-03|45"><td>安盛金融有限公司</td><td>真智安心醫療保障・特級+額外醫療附加保障<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>14,247.00</td><td>17,203.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00018/F00018-02-001-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00018-25|f00018-02-001-03|60"><td>安盛金融有限公司</td><td>真智安心醫療保障・特級+額外醫療附加保障<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>28,024.00</td><td>29,318.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00018/F00018-02-001-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00038-6|f00038-02-000-02|30"><td>亞洲保險有限公司</td><td>亞洲尚選・標準私家房間<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>30<br><small>實際年齡</small></td><td>12,671.00</td><td>16,832.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00038/F00038-02-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00038-6|f00038-02-000-02|45"><td>亞洲保險有限公司</td><td>亞洲尚選・標準私家房間<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>45<br><small>實際年齡</small></td><td>17,063.00</td><td>22,717.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00038/F00038-02-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00038-6|f00038-02-000-02|60"><td>亞洲保險有限公司</td><td>亞洲尚選・標準私家房間<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>60<br><small>實際年齡</small></td><td>40,362.00</td><td>37,348.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00038/F00038-02-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00038-5|f00038-01-000-02|30"><td>亞洲保險有限公司</td><td>亞洲尚選・半私家房間<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>30<br><small>實際年齡</small></td><td>8,046.00</td><td>10,689.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00038/F00038-01-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00038-5|f00038-01-000-02|45"><td>亞洲保險有限公司</td><td>亞洲尚選・半私家房間<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>45<br><small>實際年齡</small></td><td>11,634.00</td><td>15,488.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00038/F00038-01-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00038-5|f00038-01-000-02|60"><td>亞洲保險有限公司</td><td>亞洲尚選・半私家房間<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>60<br><small>實際年齡</small></td><td>25,962.00</td><td>24,023.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00038/F00038-01-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00028-33|f00028-01-005-02|30"><td>中銀集團保險有限公司</td><td>中銀靈活自願醫保計劃認可產品・基本計劃+附加重症住院保障+升級保障1<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>30<br><small>實際年齡</small></td><td>5,702.00</td><td>7,872.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00028/F00028-01-005-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00028-33|f00028-01-005-02|45"><td>中銀集團保險有限公司</td><td>中銀靈活自願醫保計劃認可產品・基本計劃+附加重症住院保障+升級保障1<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>45<br><small>實際年齡</small></td><td>9,245.00</td><td>12,468.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00028/F00028-01-005-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00028-33|f00028-01-005-02|60"><td>中銀集團保險有限公司</td><td>中銀靈活自願醫保計劃認可產品・基本計劃+附加重症住院保障+升級保障1<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>60<br><small>實際年齡</small></td><td>22,252.00</td><td>22,683.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00028/F00028-01-005-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00028-34|f00028-01-006-02|30"><td>中銀集團保險有限公司</td><td>中銀靈活自願醫保計劃認可產品・基本計劃+附加重症住院保障+升級保障2<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>30<br><small>實際年齡</small></td><td>5,937.00</td><td>8,507.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00028/F00028-01-006-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00028-34|f00028-01-006-02|45"><td>中銀集團保險有限公司</td><td>中銀靈活自願醫保計劃認可產品・基本計劃+附加重症住院保障+升級保障2<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>45<br><small>實際年齡</small></td><td>9,920.00</td><td>14,127.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00028/F00028-01-006-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00028-34|f00028-01-006-02|60"><td>中銀集團保險有限公司</td><td>中銀靈活自願醫保計劃認可產品・基本計劃+附加重症住院保障+升級保障2<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>60<br><small>實際年齡</small></td><td>24,205.00</td><td>25,138.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00028/F00028-01-006-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00059-36|f00059-03-000-01|30"><td>藍十字（亞太）保險有限公司</td><td>藍十字尊悅自願醫保計劃<br><small>$40,000 自付費・亞洲及澳紐・投保年齡組 0–70</small></td>
+<td>30<br><small>實際年齡</small></td><td>6,330.00</td><td>6,330.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00059/F00059-03-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00059-36|f00059-03-000-01|45"><td>藍十字（亞太）保險有限公司</td><td>藍十字尊悅自願醫保計劃<br><small>$40,000 自付費・亞洲及澳紐・投保年齡組 0–70</small></td>
+<td>45<br><small>實際年齡</small></td><td>9,344.00</td><td>9,344.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00059/F00059-03-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00059-36|f00059-03-000-01|60"><td>藍十字（亞太）保險有限公司</td><td>藍十字尊悅自願醫保計劃<br><small>$40,000 自付費・亞洲及澳紐・投保年齡組 0–70</small></td>
+<td>60<br><small>實際年齡</small></td><td>19,098.00</td><td>19,098.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00059/F00059-03-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00073-37|f00073-08-000-01|30"><td>藍十字（亞太）保險有限公司</td><td>藍十字「愛自己」自願醫保計劃<br><small>$80,000 自付費・全球・投保年齡組 0–70</small></td>
+<td>30<br><small>實際年齡</small></td><td>4,367.00</td><td>4,367.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00073/F00073-08-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00073-37|f00073-08-000-01|45"><td>藍十字（亞太）保險有限公司</td><td>藍十字「愛自己」自願醫保計劃<br><small>$80,000 自付費・全球・投保年齡組 0–70</small></td>
+<td>45<br><small>實際年齡</small></td><td>6,446.00</td><td>6,446.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00073/F00073-08-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00073-37|f00073-08-000-01|60"><td>藍十字（亞太）保險有限公司</td><td>藍十字「愛自己」自願醫保計劃<br><small>$80,000 自付費・全球・投保年齡組 0–70</small></td>
+<td>60<br><small>實際年齡</small></td><td>13,176.00</td><td>13,176.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00073/F00073-08-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00078-39|f00078-01-001-01|30"><td>保特保險（香港）有限公司</td><td>智適選自願醫療保險計劃・計劃二<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>3,952.00</td><td>4,478.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00078/F00078-01-001-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00078-39|f00078-01-001-01|45"><td>保特保險（香港）有限公司</td><td>智適選自願醫療保險計劃・計劃二<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>7,237.00</td><td>8,172.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00078/F00078-01-001-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00078-39|f00078-01-001-01|60"><td>保特保險（香港）有限公司</td><td>智適選自願醫療保險計劃・計劃二<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>14,733.00</td><td>14,733.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00078/F00078-01-001-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00078-42|f00078-03-000-01|30"><td>保特保險（香港）有限公司</td><td>智適選自願醫療保險計劃・計劃五<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>7,377.00</td><td>8,772.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00078/F00078-03-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00078-42|f00078-03-000-01|45"><td>保特保險（香港）有限公司</td><td>智適選自願醫療保險計劃・計劃五<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>15,141.00</td><td>17,149.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00078/F00078-03-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00078-42|f00078-03-000-01|60"><td>保特保險（香港）有限公司</td><td>智適選自願醫療保險計劃・計劃五<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>31,406.00</td><td>31,406.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00078/F00078-03-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00031-47|f00031-01-000-08|30"><td>保泰人壽保險有限公司</td><td>保泰自願醫保 - 靈活計劃・基本計劃<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>3,048.00（月繳×12）</td><td>4,452.00（月繳×12）</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00031/F00031-01-000-08-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00031-47|f00031-01-000-08|45"><td>保泰人壽保險有限公司</td><td>保泰自願醫保 - 靈活計劃・基本計劃<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>5,208.00（月繳×12）</td><td>6,780.00（月繳×12）</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00031/F00031-01-000-08-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00031-47|f00031-01-000-08|60"><td>保泰人壽保險有限公司</td><td>保泰自願醫保 - 靈活計劃・基本計劃<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>11,136.00（月繳×12）</td><td>10,500.00（月繳×12）</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00031/F00031-01-000-08-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00060-46|f00060-09-000-04|30"><td>保泰人壽保險有限公司</td><td>保泰粉紅自願醫保計劃・普通房<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>8,424.00（月繳×12）</td><td>8,424.00（月繳×12）</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00060/F00060-09-000-04-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00060-46|f00060-09-000-04|45"><td>保泰人壽保險有限公司</td><td>保泰粉紅自願醫保計劃・普通房<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>12,780.00（月繳×12）</td><td>12,780.00（月繳×12）</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00060/F00060-09-000-04-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00060-46|f00060-09-000-04|60"><td>保泰人壽保險有限公司</td><td>保泰粉紅自願醫保計劃・普通房<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>25,320.00（月繳×12）</td><td>25,320.00（月繳×12）</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00060/F00060-09-000-04-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00029-60|f00029-03-001-06|30"><td>保柏（亞洲）有限公司</td><td>保柏靈活配自願醫保計劃・升級尊尚<br><small>$0 自付費・投保年齡組 0–59</small></td>
+<td>30<br><small>實際年齡</small></td><td>20,159.00</td><td>20,159.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00029/F00029-03-001-06-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00029-60|f00029-03-001-06|45"><td>保柏（亞洲）有限公司</td><td>保柏靈活配自願醫保計劃・升級尊尚<br><small>$0 自付費・投保年齡組 0–59</small></td>
+<td>45<br><small>實際年齡</small></td><td>37,656.00</td><td>37,656.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00029/F00029-03-001-06-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00029-60|f00029-03-001-06|60"><td>保柏（亞洲）有限公司</td><td>保柏靈活配自願醫保計劃・升級尊尚<br><small>$0 自付費・投保年齡組 0–59</small></td>
+<td>60<br><small>實際年齡</small></td><td>74,713.00</td><td>74,713.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00029/F00029-03-001-06-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00029-57|f00029-02-000-06|30"><td>保柏（亞洲）有限公司</td><td>保柏靈活配自願醫保計劃・智選<br><small>$0 自付費・投保年齡組 0–59</small></td>
+<td>30<br><small>實際年齡</small></td><td>8,637.00</td><td>8,637.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00029/F00029-02-000-06-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00029-57|f00029-02-000-06|45"><td>保柏（亞洲）有限公司</td><td>保柏靈活配自願醫保計劃・智選<br><small>$0 自付費・投保年齡組 0–59</small></td>
+<td>45<br><small>實際年齡</small></td><td>15,536.00</td><td>15,536.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00029/F00029-02-000-06-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00029-57|f00029-02-000-06|60"><td>保柏（亞洲）有限公司</td><td>保柏靈活配自願醫保計劃・智選<br><small>$0 自付費・投保年齡組 0–59</small></td>
+<td>60<br><small>實際年齡</small></td><td>27,678.00</td><td>27,678.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00029/F00029-02-000-06-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00016-96|f00016-04-000-06|30"><td>信諾環球保險有限公司</td><td>信諾自願醫保系列－靈活計劃（優越）・半私家病房<br><small>$50,000 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>5,528.00</td><td>5,528.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00016/F00016-04-000-06-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00016-96|f00016-04-000-06|45"><td>信諾環球保險有限公司</td><td>信諾自願醫保系列－靈活計劃（優越）・半私家病房<br><small>$50,000 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>9,037.00</td><td>9,037.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00016/F00016-04-000-06-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00016-96|f00016-04-000-06|60"><td>信諾環球保險有限公司</td><td>信諾自願醫保系列－靈活計劃（優越）・半私家病房<br><small>$50,000 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>19,863.00</td><td>19,863.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00016/F00016-04-000-06-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00016-97|f00016-08-000-04|30"><td>信諾環球保險有限公司</td><td>信諾自願醫保系列－靈活計劃（優越）・普通病房<br><small>$25,000 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>4,403.00</td><td>4,403.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00016/F00016-08-000-04-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00016-97|f00016-08-000-04|45"><td>信諾環球保險有限公司</td><td>信諾自願醫保系列－靈活計劃（優越）・普通病房<br><small>$25,000 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>7,316.00</td><td>7,316.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00016/F00016-08-000-04-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00016-97|f00016-08-000-04|60"><td>信諾環球保險有限公司</td><td>信諾自願醫保系列－靈活計劃（優越）・普通病房<br><small>$25,000 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>15,819.00</td><td>15,819.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00016/F00016-08-000-04-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00030-63|f00030-01-001-03|30"><td>中國人壽保險（海外）股份有限公司</td><td>健康常伴優越醫療保險計劃・半私家病房連附加保障<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>4,687.00</td><td>6,163.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00030/F00030-01-001-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00030-63|f00030-01-001-03|45"><td>中國人壽保險（海外）股份有限公司</td><td>健康常伴優越醫療保險計劃・半私家病房連附加保障<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>7,187.00</td><td>9,790.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00030/F00030-01-001-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00030-63|f00030-01-001-03|60"><td>中國人壽保險（海外）股份有限公司</td><td>健康常伴優越醫療保險計劃・半私家病房連附加保障<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>16,440.00</td><td>15,235.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00030/F00030-01-001-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00030-62|f00030-01-000-03|30"><td>中國人壽保險（海外）股份有限公司</td><td>健康常伴優越醫療保險計劃・半私家病房<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>3,386.00</td><td>4,528.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00030/F00030-01-000-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00030-62|f00030-01-000-03|45"><td>中國人壽保險（海外）股份有限公司</td><td>健康常伴優越醫療保險計劃・半私家病房<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>5,139.00</td><td>7,091.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00030/F00030-01-000-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00030-62|f00030-01-000-03|60"><td>中國人壽保險（海外）股份有限公司</td><td>健康常伴優越醫療保險計劃・半私家病房<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>11,601.00</td><td>10,797.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00030/F00030-01-000-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00052-67|f00052-02-000-01|30"><td>中國太平人壽保險（香港）有限公司</td><td>太平人壽自願醫保靈活計劃・計劃2 - 半私家房<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>30<br><small>實際年齡</small></td><td>4,922.94</td><td>6,494.08</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00052/F00052-02-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00052-67|f00052-02-000-01|45"><td>中國太平人壽保險（香港）有限公司</td><td>太平人壽自願醫保靈活計劃・計劃2 - 半私家房<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>45<br><small>實際年齡</small></td><td>7,923.92</td><td>10,557.65</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00052/F00052-02-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00052-67|f00052-02-000-01|60"><td>中國太平人壽保險（香港）有限公司</td><td>太平人壽自願醫保靈活計劃・計劃2 - 半私家房<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>60<br><small>實際年齡</small></td><td>19,110.14</td><td>18,494.47</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00052/F00052-02-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00052-66|f00052-01-000-01|30"><td>中國太平人壽保險（香港）有限公司</td><td>太平人壽自願醫保靈活計劃・計劃1 - 普通房連超額醫療保障<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>30<br><small>實際年齡</small></td><td>3,311.23</td><td>4,362.20</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00052/F00052-01-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00052-66|f00052-01-000-01|45"><td>中國太平人壽保險（香港）有限公司</td><td>太平人壽自願醫保靈活計劃・計劃1 - 普通房連超額醫療保障<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>45<br><small>實際年齡</small></td><td>5,342.22</td><td>7,170.82</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00052/F00052-01-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00052-66|f00052-01-000-01|60"><td>中國太平人壽保險（香港）有限公司</td><td>太平人壽自願醫保靈活計劃・計劃1 - 普通房連超額醫療保障<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>60<br><small>實際年齡</small></td><td>12,505.58</td><td>12,064.73</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00052/F00052-01-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00064-80|f00064-02-000-02|30"><td>周大福人壽保險有限公司</td><td>「悅康保」醫療保障計劃・保障級別2<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>10,190.48</td><td>11,401.19</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00064/F00064-02-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00064-80|f00064-02-000-02|45"><td>周大福人壽保險有限公司</td><td>「悅康保」醫療保障計劃・保障級別2<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>15,319.05</td><td>17,811.90</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00064/F00064-02-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00064-80|f00064-02-000-02|60"><td>周大福人壽保險有限公司</td><td>「悅康保」醫療保障計劃・保障級別2<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>31,386.90</td><td>29,640.48</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00064/F00064-02-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00077-73|f00077-02-000-01|30"><td>周大福人壽保險有限公司</td><td>「逸康保」醫療保障計劃・保障級別 2 - + 保障分擔額18,000<br><small>$18,000 自付費・亞洲・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>5,997.62</td><td>5,997.62</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00077/F00077-02-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00077-73|f00077-02-000-01|45"><td>周大福人壽保險有限公司</td><td>「逸康保」醫療保障計劃・保障級別 2 - + 保障分擔額18,000<br><small>$18,000 自付費・亞洲・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>9,184.52</td><td>9,184.52</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00077/F00077-02-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00077-73|f00077-02-000-01|60"><td>周大福人壽保險有限公司</td><td>「逸康保」醫療保障計劃・保障級別 2 - + 保障分擔額18,000<br><small>$18,000 自付費・亞洲・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>16,252.38</td><td>16,252.38</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00077/F00077-02-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00027-91|f00027-04-000-03|30"><td>安達人壽保險香港有限公司</td><td>安達自願醫保（靈活）計劃・私家<br><small>$0 自付費・投保年齡組 0–81</small></td>
+<td>30<br><small>最接近生日年齡</small></td><td>14,837.00</td><td>17,829.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00027/F00027-04-000-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00027-91|f00027-04-000-03|45"><td>安達人壽保險香港有限公司</td><td>安達自願醫保（靈活）計劃・私家<br><small>$0 自付費・投保年齡組 0–81</small></td>
+<td>45<br><small>最接近生日年齡</small></td><td>25,326.00</td><td>29,829.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00027/F00027-04-000-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00027-91|f00027-04-000-03|60"><td>安達人壽保險香港有限公司</td><td>安達自願醫保（靈活）計劃・私家<br><small>$0 自付費・投保年齡組 0–81</small></td>
+<td>60<br><small>最接近生日年齡</small></td><td>47,434.00</td><td>46,251.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00027/F00027-04-000-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00027-85|f00027-01-000-03|30"><td>安達人壽保險香港有限公司</td><td>安達自願醫保（靈活）計劃・基本<br><small>$0 自付費・投保年齡組 0–81</small></td>
+<td>30<br><small>最接近生日年齡</small></td><td>5,264.00</td><td>6,629.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00027/F00027-01-000-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00027-85|f00027-01-000-03|45"><td>安達人壽保險香港有限公司</td><td>安達自願醫保（靈活）計劃・基本<br><small>$0 自付費・投保年齡組 0–81</small></td>
+<td>45<br><small>最接近生日年齡</small></td><td>8,761.00</td><td>10,436.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00027/F00027-01-000-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00027-85|f00027-01-000-03|60"><td>安達人壽保險香港有限公司</td><td>安達自願醫保（靈活）計劃・基本<br><small>$0 自付費・投保年齡組 0–81</small></td>
+<td>60<br><small>最接近生日年齡</small></td><td>16,989.00</td><td>16,201.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00027/F00027-01-000-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00067-106|f00067-05-000-02|30"><td>富衛人壽保險（百慕達）有限公司</td><td>至．衛一醫療計劃・標準<br><small>$120,000 自付費・投保年齡組 1–81</small></td>
+<td>30<br><small>下次生日年齡</small></td><td>4,490.00</td><td>4,490.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00067/F00067-05-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00067-106|f00067-05-000-02|45"><td>富衛人壽保險（百慕達）有限公司</td><td>至．衛一醫療計劃・標準<br><small>$120,000 自付費・投保年齡組 1–81</small></td>
+<td>45<br><small>下次生日年齡</small></td><td>7,103.00</td><td>7,103.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00067/F00067-05-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00067-106|f00067-05-000-02|60"><td>富衛人壽保險（百慕達）有限公司</td><td>至．衛一醫療計劃・標準<br><small>$120,000 自付費・投保年齡組 1–81</small></td>
+<td>60<br><small>下次生日年齡</small></td><td>15,251.00</td><td>15,251.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00067/F00067-05-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00032-102|f00032-01-000-05|30"><td>富衛人壽保險（百慕達）有限公司</td><td>更衛您（優越版）醫療計劃・更衛您 優越版 醫療計劃<br><small>$0 自付費・投保年齡組 1–81</small></td>
+<td>30<br><small>下次生日年齡</small></td><td>4,160.00</td><td>5,581.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00032/F00032-01-000-05-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00032-102|f00032-01-000-05|45"><td>富衛人壽保險（百慕達）有限公司</td><td>更衛您（優越版）醫療計劃・更衛您 優越版 醫療計劃<br><small>$0 自付費・投保年齡組 1–81</small></td>
+<td>45<br><small>下次生日年齡</small></td><td>6,955.00</td><td>9,006.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00032/F00032-01-000-05-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00032-102|f00032-01-000-05|60"><td>富衛人壽保險（百慕達）有限公司</td><td>更衛您（優越版）醫療計劃・更衛您 優越版 醫療計劃<br><small>$0 自付費・投保年齡組 1–81</small></td>
+<td>60<br><small>下次生日年齡</small></td><td>14,557.00</td><td>15,228.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00032/F00032-01-000-05-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00079-121|f00079-01-000-01|30"><td>滙豐人壽保險（國際）有限公司</td><td>滙豐自願醫保進階計劃・進階計劃<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>2,473.00</td><td>3,172.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00079/F00079-01-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00079-121|f00079-01-000-01|45"><td>滙豐人壽保險（國際）有限公司</td><td>滙豐自願醫保進階計劃・進階計劃<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>4,054.00</td><td>5,301.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00079/F00079-01-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00079-121|f00079-01-000-01|60"><td>滙豐人壽保險（國際）有限公司</td><td>滙豐自願醫保進階計劃・進階計劃<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>8,332.00</td><td>8,471.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00079/F00079-01-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00076-125|f00076-12-000-02|30"><td>滙豐人壽保險（國際）有限公司</td><td>「愛 ‧ 護航」自願醫保靈活計劃・金級<br><small>$100,000 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>6,008.00</td><td>6,008.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00076/F00076-12-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00076-125|f00076-12-000-02|45"><td>滙豐人壽保險（國際）有限公司</td><td>「愛 ‧ 護航」自願醫保靈活計劃・金級<br><small>$100,000 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>8,789.00</td><td>8,789.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00076/F00076-12-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00076-125|f00076-12-000-02|60"><td>滙豐人壽保險（國際）有限公司</td><td>「愛 ‧ 護航」自願醫保靈活計劃・金級<br><small>$100,000 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>17,859.00</td><td>17,859.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00076/F00076-12-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00039-112|f00039-02-000-02|30"><td>香港人壽保險有限公司</td><td>「倍健樂」醫療計劃・計劃 II<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>5,296.00</td><td>6,980.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00039/F00039-02-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00039-112|f00039-02-000-02|45"><td>香港人壽保險有限公司</td><td>「倍健樂」醫療計劃・計劃 II<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>8,602.00</td><td>11,813.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00039/F00039-02-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00039-112|f00039-02-000-02|60"><td>香港人壽保險有限公司</td><td>「倍健樂」醫療計劃・計劃 II<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>19,634.00</td><td>18,657.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00039/F00039-02-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00039-110|f00039-01-000-02|30"><td>香港人壽保險有限公司</td><td>「倍健樂」醫療計劃・計劃 I<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>2,901.00</td><td>3,812.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00039/F00039-01-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00039-110|f00039-01-000-02|45"><td>香港人壽保險有限公司</td><td>「倍健樂」醫療計劃・計劃 I<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>4,694.00</td><td>6,391.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00039/F00039-01-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00039-110|f00039-01-000-02|60"><td>香港人壽保險有限公司</td><td>「倍健樂」醫療計劃・計劃 I<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>10,501.00</td><td>10,060.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00039/F00039-01-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00047-128|f00047-01-000-02|30"><td>利寶國際保險有限公司</td><td>利寶國際自願醫保系列 – 靈活計劃(基本)・靈活計劃 基本<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>4,081.00</td><td>4,081.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00047/F00047-01-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00047-128|f00047-01-000-02|45"><td>利寶國際保險有限公司</td><td>利寶國際自願醫保系列 – 靈活計劃(基本)・靈活計劃 基本<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>6,346.00</td><td>6,346.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00047/F00047-01-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00047-128|f00047-01-000-02|60"><td>利寶國際保險有限公司</td><td>利寶國際自願醫保系列 – 靈活計劃(基本)・靈活計劃 基本<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>11,704.00</td><td>11,704.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00047/F00047-01-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00048-131|f00048-01-001-02|30"><td>利寶國際保險有限公司</td><td>利寶國際自願醫保系列 – 靈活計劃(升級)・靈活計劃 升級+附加醫療保障<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>7,417.00</td><td>7,417.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00048/F00048-01-001-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00048-131|f00048-01-001-02|45"><td>利寶國際保險有限公司</td><td>利寶國際自願醫保系列 – 靈活計劃(升級)・靈活計劃 升級+附加醫療保障<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>11,530.00</td><td>11,530.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00048/F00048-01-001-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00048-131|f00048-01-001-02|60"><td>利寶國際保險有限公司</td><td>利寶國際自願醫保系列 – 靈活計劃(升級)・靈活計劃 升級+附加醫療保障<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>21,268.00</td><td>21,268.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00048/F00048-01-001-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00023-149|f00023-01-001-02|30"><td>三井住友海上火災保險（香港）有限公司</td><td>自願醫保計劃-優健保・計劃 A+附加額外醫療保障<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>30<br><small>實際年齡</small></td><td>9,018.00</td><td>9,018.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00023/F00023-01-001-02-StandardPremium-c.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00023-149|f00023-01-001-02|45"><td>三井住友海上火災保險（香港）有限公司</td><td>自願醫保計劃-優健保・計劃 A+附加額外醫療保障<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>45<br><small>實際年齡</small></td><td>14,256.00</td><td>14,256.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00023/F00023-01-001-02-StandardPremium-c.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00023-149|f00023-01-001-02|60"><td>三井住友海上火災保險（香港）有限公司</td><td>自願醫保計劃-優健保・計劃 A+附加額外醫療保障<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>60<br><small>實際年齡</small></td><td>20,304.00</td><td>20,304.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00023/F00023-01-001-02-StandardPremium-c.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00023-148|f00023-01-000-02|30"><td>三井住友海上火災保險（香港）有限公司</td><td>自願醫保計劃-優健保・計劃 A<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>30<br><small>實際年齡</small></td><td>6,966.00</td><td>6,966.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00023/F00023-01-000-02-StandardPremium-c.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00023-148|f00023-01-000-02|45"><td>三井住友海上火災保險（香港）有限公司</td><td>自願醫保計劃-優健保・計劃 A<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>45<br><small>實際年齡</small></td><td>11,124.00</td><td>11,124.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00023/F00023-01-000-02-StandardPremium-c.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00023-148|f00023-01-000-02|60"><td>三井住友海上火災保險（香港）有限公司</td><td>自願醫保計劃-優健保・計劃 A<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>60<br><small>實際年齡</small></td><td>15,822.00</td><td>15,822.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00023/F00023-01-000-02-StandardPremium-c.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00019-138|f00019-02-002-07|30"><td>宏利人壽保險（國際）有限公司</td><td>宏利全護航自願醫保靈活計劃・半私家房+特級高額醫療保障<br><small>$0 自付費・投保年齡組 0–81</small></td>
+<td>30<br><small>最接近生日年齡</small></td><td>10,734.00</td><td>11,864.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00019/F00019-02-002-07-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00019-138|f00019-02-002-07|45"><td>宏利人壽保險（國際）有限公司</td><td>宏利全護航自願醫保靈活計劃・半私家房+特級高額醫療保障<br><small>$0 自付費・投保年齡組 0–81</small></td>
+<td>45<br><small>最接近生日年齡</small></td><td>16,993.00</td><td>21,090.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00019/F00019-02-002-07-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00019-138|f00019-02-002-07|60"><td>宏利人壽保險（國際）有限公司</td><td>宏利全護航自願醫保靈活計劃・半私家房+特級高額醫療保障<br><small>$0 自付費・投保年齡組 0–81</small></td>
+<td>60<br><small>最接近生日年齡</small></td><td>36,013.00</td><td>30,986.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00019/F00019-02-002-07-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00019-135|f00019-01-002-07|30"><td>宏利人壽保險（國際）有限公司</td><td>宏利全護航自願醫保靈活計劃・普通房+特級高額醫療保障<br><small>$0 自付費・投保年齡組 0–81</small></td>
+<td>30<br><small>最接近生日年齡</small></td><td>6,044.00</td><td>6,681.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00019/F00019-01-002-07-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00019-135|f00019-01-002-07|45"><td>宏利人壽保險（國際）有限公司</td><td>宏利全護航自願醫保靈活計劃・普通房+特級高額醫療保障<br><small>$0 自付費・投保年齡組 0–81</small></td>
+<td>45<br><small>最接近生日年齡</small></td><td>9,568.00</td><td>11,875.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00019/F00019-01-002-07-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00019-135|f00019-01-002-07|60"><td>宏利人壽保險（國際）有限公司</td><td>宏利全護航自願醫保靈活計劃・普通房+特級高額醫療保障<br><small>$0 自付費・投保年齡組 0–81</small></td>
+<td>60<br><small>最接近生日年齡</small></td><td>20,278.00</td><td>17,446.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00019/F00019-01-002-07-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00013-154|f00013-01-000-06|30"><td>保誠保險有限公司</td><td>保誠靈活自主醫保計劃・普通病房<br><small>$0 自付費・投保年齡組 1–81</small></td>
+<td>30<br><small>下次生日年齡</small></td><td>3,222.61</td><td>4,371.08</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00013/F00013-01-000-06-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00013-154|f00013-01-000-06|45"><td>保誠保險有限公司</td><td>保誠靈活自主醫保計劃・普通病房<br><small>$0 自付費・投保年齡組 1–81</small></td>
+<td>45<br><small>下次生日年齡</small></td><td>5,900.08</td><td>7,429.54</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00013/F00013-01-000-06-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00013-154|f00013-01-000-06|60"><td>保誠保險有限公司</td><td>保誠靈活自主醫保計劃・普通病房<br><small>$0 自付費・投保年齡組 1–81</small></td>
+<td>60<br><small>下次生日年齡</small></td><td>11,835.41</td><td>11,682.82</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00013/F00013-01-000-06-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00013-155|f00013-01-001-06|30"><td>保誠保險有限公司</td><td>保誠靈活自主醫保計劃・普通病房+額外醫療計劃一<br><small>$0 自付費・投保年齡組 1–81</small></td>
+<td>30<br><small>下次生日年齡</small></td><td>5,483.82</td><td>7,268.57</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00013/F00013-01-001-06-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00013-155|f00013-01-001-06|45"><td>保誠保險有限公司</td><td>保誠靈活自主醫保計劃・普通病房+額外醫療計劃一<br><small>$0 自付費・投保年齡組 1–81</small></td>
+<td>45<br><small>下次生日年齡</small></td><td>9,588.92</td><td>12,368.61</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00013/F00013-01-001-06-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00013-155|f00013-01-001-06|60"><td>保誠保險有限公司</td><td>保誠靈活自主醫保計劃・普通病房+額外醫療計劃一<br><small>$0 自付費・投保年齡組 1–81</small></td>
+<td>60<br><small>下次生日年齡</small></td><td>19,302.54</td><td>18,280.78</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00013/F00013-01-001-06-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00026-166|f00026-01-000-03|30"><td>香港永明金融有限公司</td><td>永明港稱心醫療保・計劃一<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>2,792.00</td><td>3,315.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00026/F00026-01-000-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00026-166|f00026-01-000-03|45"><td>香港永明金融有限公司</td><td>永明港稱心醫療保・計劃一<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>4,730.00</td><td>5,436.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00026/F00026-01-000-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00026-166|f00026-01-000-03|60"><td>香港永明金融有限公司</td><td>永明港稱心醫療保・計劃一<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>9,840.00</td><td>10,093.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00026/F00026-01-000-03-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00063-169|f00063-01-000-01|30"><td>香港永明金融有限公司</td><td>永明港卓越醫療保<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>30<br><small>實際年齡</small></td><td>13,577.00</td><td>13,577.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00063/F00063-01-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00063-169|f00063-01-000-01|45"><td>香港永明金融有限公司</td><td>永明港卓越醫療保<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>45<br><small>實際年齡</small></td><td>20,136.00</td><td>20,136.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00063/F00063-01-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00063-169|f00063-01-000-01|60"><td>香港永明金融有限公司</td><td>永明港卓越醫療保<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>60<br><small>實際年齡</small></td><td>40,932.00</td><td>40,932.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00063/F00063-01-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00042-171|f00042-02-000-02|30"><td>立橋人壽保險有限公司</td><td>立安心自願醫保靈活計劃・半私家房<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>30<br><small>實際年齡</small></td><td>5,337.00</td><td>6,125.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00042/F00042-02-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00042-171|f00042-02-000-02|45"><td>立橋人壽保險有限公司</td><td>立安心自願醫保靈活計劃・半私家房<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>45<br><small>實際年齡</small></td><td>9,598.00</td><td>12,125.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00042/F00042-02-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00042-171|f00042-02-000-02|60"><td>立橋人壽保險有限公司</td><td>立安心自願醫保靈活計劃・半私家房<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>60<br><small>實際年齡</small></td><td>18,212.00</td><td>18,515.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00042/F00042-02-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00042-172|f00042-03-000-02|30"><td>立橋人壽保險有限公司</td><td>立安心自願醫保靈活計劃・標準私家房<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>30<br><small>實際年齡</small></td><td>8,272.00</td><td>9,807.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00042/F00042-03-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00042-172|f00042-03-000-02|45"><td>立橋人壽保險有限公司</td><td>立安心自願醫保靈活計劃・標準私家房<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>45<br><small>實際年齡</small></td><td>16,766.00</td><td>20,733.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00042/F00042-03-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00042-172|f00042-03-000-02|60"><td>立橋人壽保險有限公司</td><td>立安心自願醫保靈活計劃・標準私家房<br><small>$0 自付費・投保年齡組 0–100</small></td>
+<td>60<br><small>實際年齡</small></td><td>31,667.00</td><td>31,911.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00042/F00042-03-000-02-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00080-174|f00080-01-000-01|30"><td>萬通保險國際有限公司</td><td>「稅」優選醫療計劃・計劃 1<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>2,890.00</td><td>3,688.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00080/F00080-01-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00080-174|f00080-01-000-01|45"><td>萬通保險國際有限公司</td><td>「稅」優選醫療計劃・計劃 1<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>4,802.00</td><td>6,398.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00080/F00080-01-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00080-174|f00080-01-000-01|60"><td>萬通保險國際有限公司</td><td>「稅」優選醫療計劃・計劃 1<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>10,250.00</td><td>9,221.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00080/F00080-01-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00080-176|f00080-02-000-01|30"><td>萬通保險國際有限公司</td><td>「稅」優選醫療計劃・計劃 1+<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>30<br><small>實際年齡</small></td><td>3,389.00</td><td>4,325.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00080/F00080-02-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00080-176|f00080-02-000-01|45"><td>萬通保險國際有限公司</td><td>「稅」優選醫療計劃・計劃 1+<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>45<br><small>實際年齡</small></td><td>5,634.00</td><td>7,504.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00080/F00080-02-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00080-176|f00080-02-000-01|60"><td>萬通保險國際有限公司</td><td>「稅」優選醫療計劃・計劃 1+<br><small>$0 自付費・投保年齡組 0–80</small></td>
+<td>60<br><small>實際年齡</small></td><td>12,024.00</td><td>10,817.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00080/F00080-02-000-01-StandardPremium-Bilingual.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00044-182|f00044-01-000-02|30"><td>蘇黎世保險有限公司</td><td>「智選無憂」自願醫療保障計劃・精選<br><small>$0 自付費・投保年齡組 0–64</small></td>
+<td>30<br><small>實際年齡</small></td><td>3,192.00</td><td>3,852.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00044/F00044-01-000-02-StandardPremium-c.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00044-182|f00044-01-000-02|45"><td>蘇黎世保險有限公司</td><td>「智選無憂」自願醫療保障計劃・精選<br><small>$0 自付費・投保年齡組 0–64</small></td>
+<td>45<br><small>實際年齡</small></td><td>5,256.00</td><td>6,552.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00044/F00044-01-000-02-StandardPremium-c.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00044-182|f00044-01-000-02|60"><td>蘇黎世保險有限公司</td><td>「智選無憂」自願醫療保障計劃・精選<br><small>$0 自付費・投保年齡組 0–64</small></td>
+<td>60<br><small>實際年齡</small></td><td>11,508.00</td><td>11,496.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00044/F00044-01-000-02-StandardPremium-c.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00044-185|f00044-02-001-02|30"><td>蘇黎世保險有限公司</td><td>「智選無憂」自願醫療保障計劃・特選附帶附加醫療保障<br><small>$0 自付費・投保年齡組 0–64</small></td>
+<td>30<br><small>實際年齡</small></td><td>6,336.00</td><td>7,656.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00044/F00044-02-001-02-StandardPremium-c.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00044-185|f00044-02-001-02|45"><td>蘇黎世保險有限公司</td><td>「智選無憂」自願醫療保障計劃・特選附帶附加醫療保障<br><small>$0 自付費・投保年齡組 0–64</small></td>
+<td>45<br><small>實際年齡</small></td><td>9,336.00</td><td>11,640.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00044/F00044-02-001-02-StandardPremium-c.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="vhis-f00044-185|f00044-02-001-02|60"><td>蘇黎世保險有限公司</td><td>「智選無憂」自願醫療保障計劃・特選附帶附加醫療保障<br><small>$0 自付費・投保年齡組 0–64</small></td>
+<td>60<br><small>實際年齡</small></td><td>20,052.00</td><td>20,040.00</td>
+<td><a href="https://www.vhis.gov.hk/doc/certifiedplan/fp/F00044/F00044-02-001-02-StandardPremium-c.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|aia-simple-care-essence|30"><td>友邦保險（國際）有限公司<br><small>危疾</small></td><td>簡護危疾保<br><small>保額 $1,000,000</small></td>
+<td>30</td><td>2,700.00</td><td>3,090.00</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/simple-care-essence/SimpleCareEssence_tc_table.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|aia-simple-care-essence|45"><td>友邦保險（國際）有限公司<br><small>危疾</small></td><td>簡護危疾保<br><small>保額 $1,000,000</small></td>
+<td>45</td><td>9,520.00</td><td>9,570.00</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/simple-care-essence/SimpleCareEssence_tc_table.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|aia-simple-care-essence|60"><td>友邦保險（國際）有限公司<br><small>危疾</small></td><td>簡護危疾保<br><small>保額 $1,000,000</small></td>
+<td>60</td><td>39,930.00</td><td>28,370.00</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/simple-care-essence/SimpleCareEssence_tc_table.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|bowtie-term-ci|30"><td>保泰人壽保險有限公司<br><small>危疾</small></td><td>保泰危疾保<br><small>保額 $500,000</small></td>
+<td>30</td><td>540.00（月供×12）</td><td>792.00（月供×12）</td>
+<td><a href="https://www.bowtie.com.hk/assets/product/term-ci/Premium-Schedule-Term-Critical-Illness-500,000-02.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|bowtie-term-ci|45"><td>保泰人壽保險有限公司<br><small>危疾</small></td><td>保泰危疾保<br><small>保額 $500,000</small></td>
+<td>45</td><td>2,196.00（月供×12）</td><td>3,576.00（月供×12）</td>
+<td><a href="https://www.bowtie.com.hk/assets/product/term-ci/Premium-Schedule-Term-Critical-Illness-500,000-02.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|bowtie-term-ci|60"><td>保泰人壽保險有限公司<br><small>危疾</small></td><td>保泰危疾保<br><small>保額 $500,000</small></td>
+<td>60</td><td>7,572.00（月供×12）</td><td>6,576.00（月供×12）</td>
+<td><a href="https://www.bowtie.com.hk/assets/product/term-ci/Premium-Schedule-Term-Critical-Illness-500,000-02.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|bowtie-term-ci-multiple|30"><td>保泰人壽保險有限公司<br><small>危疾</small></td><td>保泰多重危疾保<br><small>保額 $500,000</small></td>
+<td>30</td><td>708.00（月供×12）</td><td>960.00（月供×12）</td>
+<td><a href="https://www.bowtie.com.hk/assets/product/term-ci-plus/Premium-Schedule-Term-CI-Multiple-Cover-500,000-02.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|bowtie-term-ci-multiple|45"><td>保泰人壽保險有限公司<br><small>危疾</small></td><td>保泰多重危疾保<br><small>保額 $500,000</small></td>
+<td>45</td><td>2,868.00（月供×12）</td><td>4,332.00（月供×12）</td>
+<td><a href="https://www.bowtie.com.hk/assets/product/term-ci-plus/Premium-Schedule-Term-CI-Multiple-Cover-500,000-02.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|bowtie-term-ci-multiple|60"><td>保泰人壽保險有限公司<br><small>危疾</small></td><td>保泰多重危疾保<br><small>保額 $500,000</small></td>
+<td>60</td><td>9,840.00（月供×12）</td><td>7,956.00（月供×12）</td>
+<td><a href="https://www.bowtie.com.hk/assets/product/term-ci-plus/Premium-Schedule-Term-CI-Multiple-Cover-500,000-02.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|bowtie-term-ci-early-multiple|30"><td>保泰人壽保險有限公司<br><small>危疾</small></td><td>保泰早期及多重危疾保<br><small>保額 $500,000</small></td>
+<td>30</td><td>792.00（月供×12）</td><td>1,080.00（月供×12）</td>
+<td><a href="https://www.bowtie.com.hk/assets/product/term-ci-max/Premium-Schedule-Term-CI-Early-Stage-Multiple-Cover-500,000-02.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|bowtie-term-ci-early-multiple|45"><td>保泰人壽保險有限公司<br><small>危疾</small></td><td>保泰早期及多重危疾保<br><small>保額 $500,000</small></td>
+<td>45</td><td>3,216.00（月供×12）</td><td>4,848.00（月供×12）</td>
+<td><a href="https://www.bowtie.com.hk/assets/product/term-ci-max/Premium-Schedule-Term-CI-Early-Stage-Multiple-Cover-500,000-02.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|bowtie-term-ci-early-multiple|60"><td>保泰人壽保險有限公司<br><small>危疾</small></td><td>保泰早期及多重危疾保<br><small>保額 $500,000</small></td>
+<td>60</td><td>11,016.00（月供×12）</td><td>8,916.00（月供×12）</td>
+<td><a href="https://www.bowtie.com.hk/assets/product/term-ci-max/Premium-Schedule-Term-CI-Early-Stage-Multiple-Cover-500,000-02.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|aia-easyguard-care-essence|30"><td>友邦保險（國際）有限公司<br><small>危疾</small></td><td>守康易危疾保<br><small>表列每 $1,000 保額</small></td>
+<td>30</td><td>1.00（每 $1,000 保額費率）</td><td>1.56（每 $1,000 保額費率）</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/easyguard-care-essence/EasyguardCareEssence_en.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|aia-easyguard-care-essence|45"><td>友邦保險（國際）有限公司<br><small>危疾</small></td><td>守康易危疾保<br><small>表列每 $1,000 保額</small></td>
+<td>45</td><td>3.71（每 $1,000 保額費率）</td><td>5.95（每 $1,000 保額費率）</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/easyguard-care-essence/EasyguardCareEssence_en.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|aia-easyguard-care-essence|60"><td>友邦保險（國際）有限公司<br><small>危疾</small></td><td>守康易危疾保<br><small>表列每 $1,000 保額</small></td>
+<td>60</td><td>16.87（每 $1,000 保額費率）</td><td>12.29（每 $1,000 保額費率）</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/easyguard-care-essence/EasyguardCareEssence_en.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|aia-cancer-care-essence|30"><td>友邦保險（國際）有限公司<br><small>危疾</small></td><td>智護癌症保<br><small>表列每 $1,000 保額</small></td>
+<td>30</td><td>1.13（每 $1,000 保額費率）</td><td>1.45（每 $1,000 保額費率）</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/cancer-care-essence/CancerCareEssence_en.pdf.coredownload.inline.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|aia-cancer-care-essence|45"><td>友邦保險（國際）有限公司<br><small>危疾</small></td><td>智護癌症保<br><small>表列每 $1,000 保額</small></td>
+<td>45</td><td>2.76（每 $1,000 保額費率）</td><td>5.28（每 $1,000 保額費率）</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/cancer-care-essence/CancerCareEssence_en.pdf.coredownload.inline.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|aia-cancer-care-essence|60"><td>友邦保險（國際）有限公司<br><small>危疾</small></td><td>智護癌症保<br><small>表列每 $1,000 保額</small></td>
+<td>60</td><td>11.32（每 $1,000 保額費率）</td><td>10.30（每 $1,000 保額費率）</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/cancer-care-essence/CancerCareEssence_en.pdf.coredownload.inline.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|aia-super-healthguard-pro|30"><td>友邦保險（國際）有限公司<br><small>危疾</small></td><td>「進升危疾保障計劃」<br><small>表列每 $1,000 保額</small></td>
+<td>30</td><td>6.80（每 $1,000 保額費率）</td><td>6.77（每 $1,000 保額費率）</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/super-healthguard-pro/SuperHealthGuardPro_en.pdf.coredownload.inline.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|aia-super-healthguard-pro|45"><td>友邦保險（國際）有限公司<br><small>危疾</small></td><td>「進升危疾保障計劃」<br><small>表列每 $1,000 保額</small></td>
+<td>45</td><td>18.15（每 $1,000 保額費率）</td><td>14.92（每 $1,000 保額費率）</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/super-healthguard-pro/SuperHealthGuardPro_en.pdf.coredownload.inline.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci|aia-super-healthguard-pro|60"><td>友邦保險（國際）有限公司<br><small>危疾</small></td><td>「進升危疾保障計劃」<br><small>表列每 $1,000 保額</small></td>
+<td>60</td><td>41.23（每 $1,000 保額費率）</td><td>32.26（每 $1,000 保額費率）</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/en/pdf/product-brochure/individuals/super-healthguard-pro/SuperHealthGuardPro_en.pdf.coredownload.inline.pdf" target="_blank" rel="noopener">開 PDF</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|aia-executive-care-pro-2"><td>友邦保險（國際）有限公司<br><small>危疾條款</small></td><td>「泰然安心」危疾保險計劃2<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 53／早期 1；總賠償上限：保額 100%；冇多次賠償，合共保額 100%</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/executive-care-pro-2/ExecutiveCarePro2_tc.pdf.coredownload.inline.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|aia-multiple-care-pro-2"><td>友邦保險（國際）有限公司<br><small>危疾條款</small></td><td>「多重安心」危疾保險計劃2<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 53／早期 1；總賠償上限：保額 500%；嚴重疾病可多次賠償，合共最多保額 500%；兩次嚴重疾病之間有等候期，癌症相關情況可長達 5 年（見小冊子）</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/multiple-care-pro-2/MultipleCarePro2_tc.pdf.coredownload.inline.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|aia-prime-care-pro-2"><td>友邦保險（國際）有限公司<br><small>危疾條款</small></td><td>「進泰安心」危疾保險計劃2<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 54／早期 39；總賠償上限：保額 100%；冇嚴重疾病多次賠償，合共保額 100%</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/prime-care-pro-2/PrimeCarePro2_tc.pdf.coredownload.inline.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|aia-smart-elite-ultra"><td>友邦保險（國際）有限公司<br><small>危疾條款</small></td><td>「多重智倍」危疾保險計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 57／早期 44；總賠償上限：合共最多保額 900%，另加保障提升 50%；癌症最多 3 次（相隔 3 年）、心臟病最多 2 次；其他嚴重疾病之間相隔 1 年；另有「保障提升」額外 50%</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/smart-elite-ultra/SmartEliteUltra_tc.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|aia-on-your-side-2"><td>友邦保險（國際）有限公司<br><small>危疾條款</small></td><td>「愛伴航」保險計劃2<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 57／早期 44；總賠償上限：合共最多保額 600%（基本 300%）；多重危疾保障，合共最多保額 600%（視乎所揀保障，基本最多 300%）；可選持續癌症入息（每月保額 5%）</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk-wise/pdf/products/individuals/zh-hk/on-your-side-plan-2/OnYourSideInsurancePlan2_tc.pdf.coredownload.inline.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|aia-essence-on-your-side"><td>友邦保險（國際）有限公司<br><small>危疾條款</small></td><td>「簡緻•愛伴航」保險計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 57／早期 0；總賠償上限：合共最多保額 280%；危疾賠償後，三大危疾可額外再賠（見小冊子）</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk-wise/pdf/products/individuals/zh-hk/essence-on-your-side/EssenceOnYourSideInsurancePlan_tc.pdf.coredownload.inline.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|aia-assemble"><td>友邦保險（國際）有限公司<br><small>危疾條款</small></td><td>「自在自選」危疾保險計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 57／早期 22；總賠償上限：人壽保障額最多 300%（視乎所揀保障）；可自選組合；「多次癌症保障」額外最多 5 次癌症賠償；每次危疾賠償之間相隔 1 年</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk-wise/pdf/products/individuals/zh-hk/aia-assemble/AIAAssemble_tc.pdf.coredownload.inline.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|aia-level-up-protect"><td>友邦保險（國際）有限公司<br><small>危疾條款</small></td><td>「進添」保險計劃 - 癌症保障<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 57／早期 0；總賠償上限：保額 200%，另加退還已繳保費 100%；首次賠償可以係 57 種危疾之一，之後第二、第三次賠償只限癌症（相隔 3 年）</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/level-up/Level-Up_tc.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|aia-simple-care-essence-pearl"><td>友邦保險（國際）有限公司<br><small>危疾條款</small></td><td>簡護危疾明珠保<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 57／早期 44；總賠償上限：保額 100%；冇多次賠償</td>
+<td><a href="https://www.aia.com.hk/content/dam/hk/zh-hk/pdf/product-brochure/individuals/simple-care-essence-pearl/SimpleCareEssencePearl_tc.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|pru-easywell-protector"><td>保誠保險有限公司<br><small>危疾條款</small></td><td>「自主健康」危疾保險計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 56／早期 0；總賠償上限：最多初始保額 200%（見小冊子條件）；冇多次賠償（主要疾病賠償一次）</td>
+<td><a href="https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/tc/brochure/product-eci-product-brochure-tc.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|pru-easywell-multicare"><td>保誠保險有限公司<br><small>危疾條款</small></td><td>「自主健康」危疾多重保障（附加保障）<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 3／早期 0；總賠償上限：保額 400%；基本計劃賠咗主要疾病之後，癌症再賠最多 2 次、心臟病或中風合共最多 2 次，每次保額 100%，相隔最少 1 年</td>
+<td><a href="https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/product-ecs-ecm-product-brochure-en.pdf.coredownload.inline.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|pru-prucancer-360"><td>保誠保險有限公司<br><small>危疾條款</small></td><td>癌症保障360<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 1／早期 0；總賠償上限：保額 100%；主要癌症賠保額 100%（確診後須存活 14 日）</td>
+<td><a href="https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/prucancer-360-product-brochure.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|pru-extended-care-iii"><td>保誠保險有限公司<br><small>危疾條款</small></td><td>危疾加護保險計劃 III<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 56／早期 61；總賠償上限：合共最多保額 860%；主要疾病賠 100% 後：癌症額外最多 2 次、心臟病或中風合共額外最多 2 次（每次 100%，86 歲前）；另有癌症治療額外保障 2 × 60%、深切治療 20%；兩次相隔最少 1 年（兩次都係癌症要 3 年）</td>
+<td><a href="https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/pruhealth-critical-illness-extended-care-iii-product-brochure.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|pru-first-protect-ii"><td>保誠保險有限公司<br><small>危疾條款</small></td><td>危疾首護保險計劃 II<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 56／早期 18；總賠償上限：主要疾病 100%（選「保障加倍」可達初始保額 200%）；主要疾病賠一次；首 10 年額外 50% 保障；深切治療最多 20%</td>
+<td><a href="https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/pruhealth-critical-illness-first-protect-ii-product-brochure.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|pru-term-ii"><td>保誠保險有限公司<br><small>危疾條款</small></td><td>守護健康危疾定期保II<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 56／早期 3；總賠償上限：保額 100%；主要疾病賠一次，保額 100%；未賠過就有身故賠償</td>
+<td><a href="https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/pruhealth-critical-illness-term-ii-product-brochure.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|pru-guardian"><td>保誠保險有限公司<br><small>危疾條款</small></td><td>「誠保一生」危疾保險計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 56／早期 49；總賠償上限：合共最多 1100%（包括人壽保障）；延續主要疾病保障每次 100%；兩次相隔最少 1 年（兩次都係癌症要 3 年）</td>
+<td><a href="https://www.prudential.com.hk/content/dam/prudential-phkl/pdf/en/brochure/pruhealth-guardian-critical-illness-plan-series-product-brochure.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|axa-careforall"><td>安盛金融保險（香港）有限公司<br><small>危疾條款</small></td><td>「盛滿愛危疾保障」<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 4／早期 0；總賠償上限：保額 100%；賠保額 100% 一次</td>
+<td><a href="https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/DH-RT5epLVHZn1l0_LPPM889-2608ECareForAllCriticalIllnessPlanProductbrochure_HK%26MA-Eng-.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|axa-totalassure"><td>安盛金融保險（香港）有限公司<br><small>危疾條款</small></td><td>「愛唯守危疾保障」<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 63／早期 72；總賠償上限：合共最多保額 1000%；癌症最多 5 次、心臟病同中風合共 2 次、嚴重認知障礙症 1 次、其他嚴重疾病 1 次；兩次相隔最少 1 年；另有持續癌症保障每月 5% 保額，最長 100 個月</td>
+<td><a href="https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShEqXNYClf9nijJ_LPPM908-RDETotalAssureTotalAssureBabyProProductBrochure_HK%26MA-Eng-.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|axa-totalassure-plus"><td>安盛金融保險（香港）有限公司<br><small>危疾條款</small></td><td>「愛唯守危疾保障（升級版）」<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 63／早期 72；總賠償上限：合共最多保額 1300%；癌症最多 5 次、心臟病 2 次、中風 2 次、嚴重認知障礙症 1 次、其他嚴重疾病 2 次；兩次相隔最少 1 年；持續癌症保障每月 5% 保額，最長 100 個月</td>
+<td><a href="https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShErnNYClf9nijL_LPPM907-RDETotalAssurePlusTotalAssurePlusBabyProProductBrochure_HK%26MA-Eng-.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|axa-multipro"><td>安盛金融保險（香港）有限公司<br><small>危疾條款</small></td><td>「愛護有加危疾保障」<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 62／早期 0；總賠償上限：見小冊子（期滿冇索償退還 100% 已繳保費）；癌症額外最多 2 次賠償（或選持續癌症保障最長 4 年）；癌症之間相隔最少 1 年</td>
+<td><a href="https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShEpnNYClf9nijI_LPPM790-RDEMultiProCriticalIllnessPlanMultiProPlusCriticalIllnessPlanProductbrochure_HK%26MA-Eng-.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|axa-multipro-plus"><td>安盛金融保險（香港）有限公司<br><small>危疾條款</small></td><td>「愛護有加危疾保障（升級版）」<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 62／早期 0；總賠償上限：見小冊子（期滿冇索償退還 100% 已繳保費）；癌症額外最多 2 次（或持續癌症保障最長 4 年）；心臟病、中風各額外 1 次</td>
+<td><a href="https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShEpnNYClf9nijI_LPPM790-RDEMultiProCriticalIllnessPlanMultiProPlusCriticalIllnessPlanProductbrochure_HK%26MA-Eng-.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|axa-healthselect-ii"><td>安盛金融保險（香港）有限公司<br><small>危疾條款</small></td><td>「康諾 II 嚴重疾病保障」<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 59／早期 0；總賠償上限：保額 100%；基本計劃賠一次；可加「多次賠償附加保障」</td>
+<td><a href="https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShEiHNYClf9niiz_LPPM671-RDEHealthSelectIIMajorIllnessPlanProductbrochure_HK%26MA-Eng-.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|axa-healthvital-ii"><td>安盛金融保險（香港）有限公司<br><small>危疾條款</small></td><td>「康采 II 嚴重疾病保障」<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 59／早期 0；總賠償上限：保額 100%；基本計劃賠一次；可加「多次賠償附加保障」</td>
+<td><a href="https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShFHnNYClf9nij__LPPM667-RDEHealthVitalIIMajorIllnessPlanProductbrochure_HK%26MA-Eng-.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|axa-early-stage-mi-iii"><td>安盛金融保險（香港）有限公司<br><small>危疾條款</small></td><td>「早期嚴重疾病保障 III 附加契約」<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 0／早期 0；總賠償上限：保額 100%；見小冊子</td>
+<td><a href="https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShFFnNYClf9nij7_LPPM673-RDEEarlyStageMajorIllnessIIISupplementProductbrochure_HK%26MA-Eng-.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|axa-living-ii-supplements"><td>安盛金融保險（香港）有限公司<br><small>危疾條款</small></td><td>「真智康寧保險 II」／「金裝康寧保險 II」／「金裝康愉保險 II」附加契約<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 62／早期 0；總賠償上限：保額 100%；見小冊子</td>
+<td><a href="https://hk-axa-web-2024.cdn.prismic.io/hk-axa-web-2024/aShGZ3NYClf9nimB_LPPM774-RDE_SmartLiving_Living_ExtraLivingCIPB_HK%26MA-Eng-.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|manu-incomeguard"><td>宏利人壽保險（國際）有限公司<br><small>危疾條款</small></td><td>宏健守護危疾入息保障<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 60／早期 44；總賠償上限：合共最多 1,000%；確診及持續治療期間可每年再賠最多保額 100%（入息形式）</td>
+<td><a href="https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/incomeguard-critical-illness-protector.html" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|manu-incomeshield"><td>宏利人壽保險（國際）有限公司<br><small>危疾條款</small></td><td>宏伴護航危疾入息保障<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 10／早期 3；總賠償上限：合共最多 500%；癌症、心臟病、中風確診同治療可多次賠償，每次最多保額 100%</td>
+<td><a href="https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/incomeshield-critical-illness-protector.html" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|manu-bright-care-pro"><td>宏利人壽保險（國際）有限公司<br><small>危疾條款</small></td><td>宏利活耀人生危疾保 PRO<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 60／早期 44；總賠償上限：見條款；癌症、心臟病、中風有額外保障（見產品單張）</td>
+<td><a href="https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manulife-bright-care-pro.html" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|manu-manuprimo-care"><td>宏利人壽保險（國際）有限公司<br><small>危疾條款</small></td><td>守護無間危疾保<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 60／早期 44；總賠償上限：合共最多 1,000%；嚴重危疾賠償後，持續治療、復發或新確診指定危疾可再賠</td>
+<td><a href="https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manuprimo-care-manuprimo-care-beststart.html" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|manu-manubright-care-2-plus"><td>宏利人壽保險（國際）有限公司<br><small>危疾條款</small></td><td>活耀人生危疾保2（加強版）<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 60／早期 44；總賠償上限：合共最多 480%；癌症治療額外支援，可每年再賠（見產品單張）</td>
+<td><a href="https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manubright-care-2-plus.html" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|manu-manubright-care-2"><td>宏利人壽保險（國際）有限公司<br><small>危疾條款</small></td><td>活耀人生危疾保2<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 60／早期 44；總賠償上限：見條款；見產品單張</td>
+<td><a href="https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manubright-care-2.html" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|manu-manuvital-care"><td>宏利人壽保險（國際）有限公司<br><small>危疾條款</small></td><td>悠然危疾保<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 60／早期 44；總賠償上限：見條款；見產品單張</td>
+<td><a href="https://www.manulife.com.hk/zh-hk/individual/products/health/critical-illness-protection/manuvital-care.html" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|fwd-mycover"><td>富衛人壽保險（百慕達）有限公司<br><small>危疾條款</small></td><td>MyCover自主揀危疾保障計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 3／早期 0；總賠償上限：保額 100%；三大疾病賠保額 100% 一次；原位癌／早期癌症可多次預支，合共最多保額 100%</td>
+<td><a href="https://www.fwd.com.hk/images/v3/assets/blt563fac53dd3a847c/blt1b86b167c28b2e1f/64d5d3ccfe2ccc83e0a2e631/MyCover_policy_brochure_EN_202308.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|fwd-easycover"><td>富衛人壽保險（百慕達）有限公司<br><small>危疾條款</small></td><td>好易揀危疾保障計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 62／早期 65；總賠償上限：見條款；危疾賠保額 100% 一次；可另加三大疾病額外 50% 保障（選擇性）</td>
+<td><a href="https://assets.contentstack.io/v3/assets/blta9d684affff23c8c/blt59b1df57a3e570fa/6361c3ec57082b10e8176283/fwd-easycover-en.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|fwd-crisis-allsupporter"><td>富衛人壽保險（百慕達）有限公司<br><small>危疾條款</small></td><td>危疾全應援保險計劃系列<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 62／早期 86；總賠償上限：合共最多保額 1290%（按計劃級別）；指定危疾（癌症、心臟病、中風、認知障礙症、腎衰竭、柏金遜症）最多賠 9 次：第 1、2 次各 120%、第 3 至 9 次各 150%，相隔最少 1 年（按計劃級別）</td>
+<td><a href="https://assets.contentstack.io/v3/assets/blta9d684affff23c8c/blt3c7e1bd8c607761a/6ac89b7acd0bd94ddfd50a5c/FWD_Crisis_AllSupporter_EN.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|fwd-crisis-usupporter"><td>富衛人壽保險（百慕達）有限公司<br><small>危疾條款</small></td><td>危疾應援保／危疾應援保（升級版）系列<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 62／早期 65；總賠償上限：多次賠償額外最多保額 990%；指定危疾（癌症、心臟病、中風、認知障礙症、腎衰竭、柏金遜症）額外最多賠 7 次：第 1、2 次各 120%、第 3 至 7 次各 150%，相隔最少 1 年；另有癌症每年入息 5%（升級版 10%）最多 5 年</td>
+<td><a href="https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/blted83ca419e962f7f/64957d9224cb333e977f29a2/fwd-crisis-usupporter-en.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|fwd-crisis-onemaster"><td>富衛人壽保險（百慕達）有限公司<br><small>危疾條款</small></td><td>危疾緻尚保／危疾緻尚保（升級版）<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 68／早期 80；總賠償上限：保額 1300%；癌症組同非癌症組各最多賠保額 650%，合共 1300%；主要危疾之間相隔最少 1 年（細節見小冊子）</td>
+<td><a href="https://www.fwd.com.hk/-/media/Files/FWDHK/pdf/protect/health-accident/critical-illness/crisis-onemaster-en.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|fwd-crisis-onecover-prime"><td>富衛人壽保險（百慕達）有限公司<br><small>危疾條款</small></td><td>危疾晉御保 (尊尚版)<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 0／早期 0；總賠償上限：見條款；產品頁寫可索償超過保額 1000%；細節見條款</td>
+<td><a href="https://www.fwd.com.hk/zh/critical-illness/crisis-onecover-prime/" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|fwd-crisis-easygo-uprimecover"><td>富衛人壽保險（百慕達）有限公司<br><small>危疾條款</small></td><td>危疾優易保 — 摯護您<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 62／早期 65；總賠償上限：見條款；選擇性多次賠償：指定危疾額外最多 2 次，每次 120%（合共額外 240%），相隔最少 1 年</td>
+<td><a href="https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/bltf34d6a5ac4c375aa/crisis-easygo-uprimecover-en.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|fwd-crisis-easygo-ucancover"><td>富衛人壽保險（百慕達）有限公司<br><small>危疾條款</small></td><td>危疾優易保 — 癌護您<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 62／早期 53；總賠償上限：保額 100%；危疾賠保額 100% 一次</td>
+<td><a href="https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/blte96c943cd69aa3ef/crisis-easygo-ucancover-ustillcover-en.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|fwd-crisis-easygo-ustillcover"><td>富衛人壽保險（百慕達）有限公司<br><small>危疾條款</small></td><td>危疾優易保 — 心護您<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 26／早期 23；總賠償上限：保額 100%；危疾賠保額 100% 一次</td>
+<td><a href="https://www.fwd.com.hk/files/v3/assets/blta9d684affff23c8c/blte96c943cd69aa3ef/crisis-easygo-ucancover-ustillcover-en.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|fwd-cancover"><td>富衛人壽保險（百慕達）有限公司<br><small>危疾條款</small></td><td>攻守易／攻守易（升級版）癌症保障計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 1／早期 0；總賠償上限：最多保額 515%（升級版）；升級版有癌症多次賠償最多 4 次，相隔最少 1 年；兩款合共最多保額 515%（按小冊子例子）</td>
+<td><a href="https://assets.contentstack.io/v3/assets/blta9d684affff23c8c/blt0fcf073b67b6cc57/635f4e319549fb1076784e49/fwd_cancover_brochure_en.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|fwd-mindplus"><td>富衛人壽保險（百慕達）有限公司<br><small>危疾條款</small></td><td>身心衛危疾保障計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 58／早期 57；總賠償上限：見條款；危疾賠保額 100%；精神病保障可賠多次（見小冊子）</td>
+<td><a href="https://assets.contentstack.io/v3/assets/blta9d684affff23c8c/bltb571b34fd2302f47/6360c981aa5f5f55fdf2980a/mpcipp-en.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|sunlife-sunwell-advanced-supreme"><td>香港永明金融有限公司<br><small>危疾條款</small></td><td>萬家康卓越保險計劃／萬家康尊尚保險計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 71／早期 90；總賠償上限：見條款；癌症、中風、心臟病之間冇等候期；同一種中風／心臟病相隔 1 年；新癌症相隔 1 年（持續癌症條件見小冊子）</td>
+<td><a href="https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SunWell_ACSC_F_EN.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|sunlife-sunwell-essentialcare"><td>香港永明金融有限公司<br><small>危疾條款</small></td><td>萬家康安心保險計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 1／早期 0；總賠償上限：見條款；癌症最多賠 3 次：不同癌症相隔 1 年、持續／復發／轉移癌症相隔 3 年；早期癌症最多 2 次</td>
+<td><a href="https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SunWell_EC_EN.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|sunlife-lovepromise"><td>香港永明金融有限公司<br><small>危疾條款</small></td><td>永明危疾家康保險計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 64／早期 62；總賠償上限：合共最多保額約 1070%（見小冊子）；嚴重疾病賠 100% 後，癌症／心臟病／中風可再賠，額外最多保額 700%（有等候期，見小冊子）</td>
+<td><a href="https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SunHealth-LovePromise_PB_EN.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|sunlife-cancer-shield"><td>香港永明金融有限公司<br><small>危疾條款</small></td><td>永明癌症護您保<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 1／早期 0；總賠償上限：見條款；嚴重癌症賠 100% 一次，之後豁免保費</td>
+<td><a href="https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/SH_CancerShield_PB_EN.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|sunlife-cmc-ii"><td>香港永明金融有限公司<br><small>危疾條款</small></td><td>危疾護您保障計劃II<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 51／早期 0；總賠償上限：見條款；危疾賠 100% 一次，之後豁免保費；加多重保障附加契約可多次賠償（見小冊子）</td>
+<td><a href="https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/CMC_E.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|sunlife-living-master"><td>香港永明金融有限公司<br><small>危疾條款</small></td><td>危疾萬全保／危疾額外萬全保（附加保障）<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 48／早期 0；總賠償上限：見條款；危疾賠 100%；癌症／心臟病／中風復發可再賠 20%（有 3 年存活期）</td>
+<td><a href="https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/documents/Living_Master_TC.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|yf-primehealth-pro-essential"><td>萬通保險國際有限公司<br><small>危疾條款</small></td><td>萬通危疾加護保 (標準版)<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 58／早期 42；總賠償上限：見條款；主要嚴重疾病賠 100% 一次（見小冊子）</td>
+<td><a href="https://www.yflife.com/sites/default/files/brochure/PHP-TC.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|yf-primehealth-pro-signature"><td>萬通保險國際有限公司<br><small>危疾條款</small></td><td>萬通危疾加護保(優越版)／萬通危疾愛護保<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 68／早期 50；總賠償上限：見條款；癌症、心臟病、中風、腦退化疾病、柏金遜病多次危疾保障最多保額 400%；另有持續癌症現金津貼最多 180%、心臟病及中風現金津貼最多 60%（細節見小冊子）</td>
+<td><a href="https://www.yflife.com/sites/default/files/brochure/PHPS-TC.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|yf-primehealth-pro-ease"><td>萬通保險國際有限公司<br><small>危疾條款</small></td><td>萬通危疾加護保險計劃（輕悅版）<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 68／早期 33；總賠償上限：見條款；主要嚴重疾病賠 100% 一次；原位癌／初期癌症最多 2 次（要係 2 種唔同癌症）</td>
+<td><a href="https://www.yflife.com/sites/default/files/brochure/PHPE-TC.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|yf-criticare-cancer"><td>萬通保險國際有限公司<br><small>危疾條款</small></td><td>加護續航癌症保險計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 68／早期 50；總賠償上限：見條款；主要嚴重疾病賠 100%；確診癌症後每年可領最多 5% 保額癌症現金，最長 10 年（細節見小冊子）</td>
+<td><a href="https://www.yflife.com/sites/default/files/brochure/CCC-TC.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|yf-criticare-cardio"><td>萬通保險國際有限公司<br><small>危疾條款</small></td><td>加護續航心血管保險計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 31／早期 16；總賠償上限：見條款；主要嚴重疾病賠 100% 一次（見小冊子）</td>
+<td><a href="https://www.yflife.com/sites/default/files/brochure/CCA-TC.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|yf-criticare-diabetes"><td>萬通保險國際有限公司<br><small>危疾條款</small></td><td>加護續航糖尿保險計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 68／早期 50；總賠償上限：見條款；主要嚴重疾病賠 100% 一次（見小冊子）</td>
+<td><a href="https://www.yflife.com/sites/default/files/brochure/CCD-TC.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|yf-lady-health"><td>萬通保險國際有限公司<br><small>危疾條款</small></td><td>「妳的健康」保障計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 4／早期 0；總賠償上限：見條款；</td>
+<td><a href="https://www.yflife.com/sites/default/files/brochure/QI_LADY_E.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|yf-update-jr-health"><td>萬通保險國際有限公司<br><small>危疾條款</small></td><td>Update 兒童健康保障<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 0／早期 0；總賠償上限：見條款；</td>
+<td><a href="https://www.yflife.com/sites/default/files/brochure/QI_UPJR_E_2.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|ctf-famcare-198"><td>周大福人壽保險有限公司<br><small>危疾條款</small></td><td>「守護家倍198」危疾保險計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 71／早期 87；總賠償上限：見條款；賠償後保障可重設返 100%；癌症、中風、嚴重心臟病有額外多次保障（小冊子寫「無上限」，條件見小冊子）；原位癌不同器官最多 2 次</td>
+<td><a href="https://www.ctflife.com.hk/pdf/en/famcare-198-critical-illness-protector-brochure.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|ctf-healthcare-168-plus"><td>周大福人壽保險有限公司<br><small>危疾條款</small></td><td>「守護168」危疾保險計劃 (加強版)<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 69／早期 68；總賠償上限：三大疾病合共最多 500%；癌症、中風、嚴重心臟病連第一次賠償合共最多保額 500%（多次保障最多 400%，相隔期最短 1 年）</td>
+<td><a href="https://www.ctflife.com.hk/pdf/en/products/life-insurance/health/healthcare-168-plus-brochure.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|ctf-protect-starter"><td>周大福人壽保險有限公司<br><small>危疾條款</small></td><td>「首護易」危疾保險計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 69／早期 4；總賠償上限：保額 100%；第 3 級危疾賠 100% 一次（扣除之前已賠）；原位癌不同器官最多 2 次</td>
+<td><a href="https://www.ctflife.com.hk/pdf/en/products/life-insurance/health/protect-starter-product-brochure.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr><tr data-id="ci-terms|ctf-healthcare-choice"><td>周大福人壽保險有限公司<br><small>危疾條款</small></td><td>「守護安心保」危疾保障計劃<br><small>需報價（對條款）</small></td>
+<td>—</td><td colspan="2" style="font-size:13px">嚴重 69／早期 4；總賠償上限：保額 100%；第 3 級危疾賠 100% 一次（扣除之前已賠）；原位癌不同器官最多 2 次</td>
+<td><a href="https://www.ctflife.com.hk/pdf/en/products/life-insurance/health/healthcare-choice-critical-illness-protector.pdf" target="_blank" rel="noopener">開小冊子</a></td>
+<td><label><input type="checkbox" data-ok> 啱</label> <label><input type="checkbox" data-bad> 唔啱</label></td></tr></table>
+<script>
+const KEY='life-checklist-v1'; let st={}; try{st=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+const paint=()=>{let ok=0,bad=0;document.querySelectorAll('tr[data-id]').forEach(tr=>{const v=st[tr.dataset.id];tr.className=v||'';tr.querySelector('[data-ok]').checked=v==='ok';tr.querySelector('[data-bad]').checked=v==='bad';if(v==='ok')ok++;if(v==='bad')bad++;});
+document.getElementById('sum').textContent=`已對 ${ok+bad} / 232（啱 ${ok}、唔啱 ${bad}）`;};
+document.addEventListener('change',ev=>{const tr=ev.target.closest('tr[data-id]');if(!tr)return;st[tr.dataset.id]=ev.target.checked?(ev.target.hasAttribute('data-ok')?'ok':'bad'):undefined;try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}paint();});
+document.getElementById('copy').onclick=()=>{const lines=Object.entries(st).filter(([k,v])=>v).map(([k,v])=>v+' '+k);navigator.clipboard.writeText(lines.join('\n')).then(()=>alert('已複製 '+lines.length+' 項，貼返俾 Claude 就得'));};
+paint();
+</script></body></html>

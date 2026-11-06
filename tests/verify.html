@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>公式驗算</title>
+  <style>body{font:15px/1.6 system-ui,sans-serif;margin:20px;max-width:900px}td,th{border-bottom:1px solid #ddd;padding:6px 8px;text-align:left}.ok{color:#2b6b2b}.bad{color:#b00;font-weight:700}</style>
+</head>
+<body>
+<h1>公式驗算（本機用，唔會上網）</h1>
+<p>用法：喺 <code>life-site</code> 資料夾執行 <code>python scripts/build.py</code>，再喺 <code>dist</code> 開 <code>python -m http.server</code>，打開 <code>/tests/verify.html</code>。全部 ✅ 先好上線。<br>
+「預期」數字係直接由醫務衞生局官方 Excel 逐格加總（另一個程式），唔係用網站程式計。</p>
+<table id="out"><tr><th>項目</th><th>預期</th><th>網站計算</th><th></th></tr></table>
+<script type="module">
+import * as P from '/assets/js/calc/premium.js';
+const out = document.getElementById('out');
+const row = (name, exp, got) => {
+  const ok = Math.abs(exp - got) < 0.01;
+  out.insertAdjacentHTML('beforeend', `<tr><td>${name}</td><td>${exp}</td><td>${got}</td><td class="${ok ? 'ok' : 'bad'}">${ok ? '✅' : '❌'}</td></tr>`);
+};
+const std = await (await fetch('/data/medical/vhis-standard.json', { cache: 'no-cache' })).json();
+
+const plan = (cert, rider = false) => std.plans.find(p => p.certNo.startsWith(cert) && (p.issuedAs === 'rider') === rider);
+const cum = (p, sex, a0, a1) => P.cumulative(a => P.stdPremium(p, sex, a0, a), a0, a1).total;
+
+// 醫療：累計保費（官方 Excel 截至 2026-11-02；Excel 更新後預期數字要跟住改）
+if (std.asOf === '2026-11-02') {
+  row('例 1：AIA 標準計劃（獨立保單）男 30→65 歲累計', 186603.2, cum(plan('S00013'), 'M', 30, 65));
+  row('例 2：AIA 標準計劃（附加契約）男 30→65 歲累計', 170388.8, cum(plan('S00013', true), 'M', 30, 65));
+  row('例 3：亞洲保險「延愛」男 30→65 歲累計', 170307, cum(plan('S00027'), 'M', 30, 65));
+  row('例 4：保泰標準計劃 女 25→85 歲累計', 366312, cum(plan('S00023'), 'F', 25, 85));
+  row('例 5：保柏（0–59 歲投保組）男 40→85 歲累計', 620298, cum(plan('S00020'), 'M', 40, 85));
+  row('例 6：保柏 65 歲投保要用 60–69 歲組（72 歲保費）', 28154, P.stdPremium(plan('S00020'), 'M', 65, 72));
+} else {
+  out.insertAdjacentHTML('beforeend', `<tr><td colspan="4">官方表已更新至 ${std.asOf}：請用新 Excel 重新計預期數字。</td></tr>`);
+}
+// 危疾公式：年保費 = 費率 × 保額 ÷ 100,000；總保費 = 年保費 × 供款年數
+row('危疾：費率 443.3 × $1,000,000 ÷ 100,000', 4433, P.ciAnnual(443.3, 1000000));
+row('危疾：$4,433 × 20 年', 88660, P.ciTotal(4433, 20, 30));
+row('危疾：$500,000 保額、費率 250', 1250, P.ciAnnual(250, 500000));
+row('危疾：30 歲供到 65 歲 = 35 年', 35, P.ciPayYears('to65', 30));
+row('自付費：可接受 $2 萬，選項 2.5 萬/5 萬/10 萬 → 冇（-1）', -1, P.pickDeductible([25000, 50000, 100000], 20000) ?? -1);
+row('自付費：可接受 $5 萬，選項 0/2 萬/5 萬 → 5 萬', 50000, P.pickDeductible([0, 20000, 50000], 50000));
+row('保費佔年薪：$30,000 ÷ ($25,000 × 12)', 0.1, P.shareOfSalary(30000, 25000));
+// 續保型危疾：每 N 年續保，期內保費不變（預期數字由另一個程式直接由 CSV 加總）
+const ciD = await (await fetch('/data/ci/plans.compiled.json', { cache: 'no-cache' })).json();
+const ciP = id => ciD.plans.find(p => p.id === id);
+if (ciP('aia-simple-care-essence')) {
+  row('危疾：AIA 簡護危疾保 男非吸煙 30→65 歲累計（每 5 年續保）', 576360, P.cumulative(a => P.ciRenewablePremium(ciP('aia-simple-care-essence'), 'M', false, 30, a), 30, 65).total);
+  row('危疾：AIA 簡護危疾保 32 歲投保、36 歲保費 = 32 歲費率', P.ciRenewablePremium(ciP('aia-simple-care-essence'), 'M', false, 32, 32), P.ciRenewablePremium(ciP('aia-simple-care-essence'), 'M', false, 32, 36));
+  row('危疾：保泰危疾保 男非吸煙 30→65 歲累計（每年續保）', 136716, P.cumulative(a => P.ciRenewablePremium(ciP('bowtie-term-ci'), 'M', false, 30, a), 30, 65).total);
+  row('危疾：保泰多重危疾保 女吸煙 25→65 歲累計', 292236, P.cumulative(a => P.ciRenewablePremium(ciP('bowtie-term-ci-multiple'), 'F', true, 25, a), 25, 65).total);
+  row('危疾：66 歲唔接受新投保（-1）', -1, P.ciRenewablePremium(ciP('bowtie-term-ci'), 'M', false, 66, 66) ?? -1);
+}
+// 選項：同一保障地區入面，揀唔超過上限嘅最高自付費
+const vs = [{ id: 'a0', deductible: 0, area: { en: 'Asia' } }, { id: 'a16', deductible: 16000, area: { en: 'Asia' } }, { id: 'a50', deductible: 50000, area: { en: 'Asia' } }, { id: 'w0', deductible: 0, area: { en: 'Worldwide' } }];
+row('預設選項：上限 $2 萬 → 亞洲 $16,000', 16000, P.pickVariant(vs, 20000).deductible);
+row('預設選項：上限 $0 → 亞洲 $0', 0, P.pickVariant(vs, 0).deductible);
+
+// ---------- 醫療儲備、退休（預期數字：人手計）；慳稅已搬去理財資訊通 ----------
+(async () => {
+  const RT = await import('/assets/js/calc/retire.js'), RS = await import('/assets/js/calc/reserve.js');
+  const J = async p => (await fetch(p, { cache: 'no-cache' })).json();
+  const [ST, AS] = await Promise.all([J('/data/statutory.json'), J('/data/assumptions.json')]);
+  row('強積金：月薪 $6,000 每月（只有僱主 5%）', 300, RT.mpfMonthly(6000, ST.mpf));
+  const r = RT.retirePlan({ age: 30, retireAge: 65, endAge: 90, monthlySpend: 15000, inflation: 0.025, postReturn: 0.03, ret: 0.05, mpfBalance: 100000, otherAssets: 0, mpfMonthly: 2500, extraMonthly: 0 });
+  row('退休：30 歲、65 退休、每月 $15,000、回報 5%：所需（取整）', 10079868, Math.round(r.need));
+  row('退休：預計累積（取整）', 3322759, Math.round(r.acc));
+  row('退休：每月需額外儲（取整）', 6096, Math.round(r.perMonth));
+  row('醫療儲備：最高缺口分數', 10, RS.gapScore({ group: 'no', personal: 'none', ci: 'none', dependants: 'yes', fund: 'lt3' }, AS.reserve).score);
+  row('醫療儲備：基本醫保墊底 $25,000＋半私家＋冇危疾＋月入 1.5–3 萬', 122500, RS.reserveFund({ personal: 'basic', deductible: 25000, pref: 'semi', ci: 'none', income: '15to30k' }, AS.reserve).total);
+})();
+</script>
+</body>
+</html>

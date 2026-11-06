@@ -1,0 +1,71 @@
+{
+ "_說明": "規劃假設（唔係官方數字），Cody 可以按專業判斷改。改完重新 build 就生效。",
+ "reserve": {
+  "buffer": {
+   "public": 10000,
+   "semi": 30000,
+   "private": 50000
+  },
+  "bufferNote": "超額／不保開支緩衝（公立／半私家／私家），2026-11-04 Cody 確認",
+  "ciMonthsOfExpenses": 3,
+  "spreadMonths": 24,
+  "gapLevels": {
+   "low": [
+    0,
+    2
+   ],
+   "mid": [
+    3,
+    5
+   ],
+   "high": [
+    6,
+    99
+   ]
+  },
+  "score": {
+   "noGroup": 2,
+   "groupLowOrUnknown": 1,
+   "noPersonal": 3,
+   "basicButPrivate": 1,
+   "noCI": 2,
+   "noCIDependants": 1,
+   "fundUnder3": 2,
+   "fund3to6": 1
+  },
+  "incomeMid": {
+   "lt15k": 12000,
+   "15to30k": 22500,
+   "30to50k": 40000,
+   "50to80k": 65000,
+   "gt80k": 90000
+  },
+  "incomeNote": "冇問每月開支，用月入範圍中位數當「3 個月開支」嘅估算（保守）",
+  "deductibleOptions": [
+   0,
+   10000,
+   25000,
+   50000,
+   100000
+  ],
+  "laterYears": 10,
+  "toAge": 65
+ },
+ "retire": {
+  "returns": {
+   "conservative": 0.03,
+   "balanced": 0.05,
+   "aggressive": 0.07
+  },
+  "defaultReturn": "balanced",
+  "inflation": 0.025,
+  "endAge": 90,
+  "endAgeOptions": [
+   85,
+   90,
+   95
+  ],
+  "postReturn": 0.03,
+  "defaultRetireAge": 65
+ }
+}
