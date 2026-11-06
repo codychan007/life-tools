@@ -75,3 +75,7 @@
 - Cody 授權 Claude 代剔：64 個未核實計劃重新對官方小冊子／產品頁；改正安盛 6 個等候期（90→60 日）、4 個等候期改 null（小冊子冇寫）、保誠延續保障 III 多次賠償寫法。68/68 verified，正式版會顯示晒。
 - multiClaim 文字值已改成 {zh, en}（2026-11-06）；validate_data.py 會擋只有中文嘅寫法。
 - 上線步驟俾 Cody：`Claude project/人生規劃通-上線步驟.md`（repo `life-tools`、Cloudflare 項目 `codychan-life`）。
+
+## GitHub（2026-11-06）
+- repo：codychan007/life-tools（Private），首次上載 dd55869（main）。之後改完：`git add -A && git commit && git push`。
+- 下一步：Cody 做 GitHub 設定（第 2 部分）同 Cloudflare 項目 codychan-life（第 3 部分），步驟喺 `../人生規劃通-上線步驟.md`。
