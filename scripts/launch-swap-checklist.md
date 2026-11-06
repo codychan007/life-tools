@@ -5,7 +5,7 @@
 
 ## 已經做好（本機，未 commit／未上網）
 - 人生規劃通：`/insurance/`（中英）、`data/insurance.json`、`assets/js/insurance.js`、`scripts/validate_insurance.py`、兩份自動更新指示（`scripts/insurance-*-prompt.md`）；目錄改做「實用資訊欄」下拉；拎走 `/tax/`，`_redirects` 轉去理財資訊通 `/tax/`；首頁問答「交稅」→ 姊妹網站慳稅規劃。
-- 理財資訊通（`site/`，**未 commit**）：`/tax/`（中英）、`assets/js/tax.js`、`assets/js/wizard.js`、`assets/js/calc/tax.js`、`data/tax/*.json`、CSS、`tests/verify.html` 加 7 項慳稅驗算；`/tax/` 暫時喺 `NOINDEX`、冇放入目錄。
+- 理財資訊通（`site/`，**2026-11-06 已上載 8174b27**，`/tax/` 隱藏中）：課稅年度清單 `data/tax/index.json`、`scripts/validate_tax.py`、每年稅務更新雲端任務 `trig_01J4Q58RReDg1WgJG68ADPjN`（3 月 1 日草擬／6 月 1 日核實，推 branch 等 Cody Merge）；`/tax/`（中英）、`assets/js/tax.js`、`assets/js/wizard.js`、`assets/js/calc/tax.js`、`data/tax/*.json`、CSS、`tests/verify.html` 加 7 項慳稅驗算；`/tax/` 暫時喺 `NOINDEX`、冇放入目錄。
 
 ## 公開當日要做（按次序）
 1. **人生規劃通**：開 GitHub repo＋Cloudflare Pages 項目（Cody 自己登入），合規批准後 `build.py` 改 `PREVIEW = False`。
@@ -21,3 +21,8 @@
    - 首頁／理財體檢有連去 `/insurance/` 嘅地方改連人生規劃通；`如何更新內容.md` 第 3 節改寫。
    - `health.js` 等如有引用 `insurance.json`（醫療通脹預設值）要改，先 `grep -rn insurance` 確認。
 5. 兩邊都 build、驗算（理財資訊通 `/tests/verify.html`、人生規劃通 `/tests/verify.html`），375px 手機檢查，再 push。
+
+## 已設立嘅雲端定時任務（2026-11-06）
+- `trig_01J4Q58RReDg1WgJG68ADPjN` money-tools 稅務數字每年更新（3/1、6/1 10:00 HKT）
+- `trig_01FpweaXdeDmHpdcqRbNKaXi` life-tools 每月產品及強積金檢查（每月 2 號 11:00 HKT，只推 branch）
+- 保障資訊兩個（`trig_01HLpACzLS54x4Mk9TvwA9qP`、`trig_019Ayq8DrUG6CBMRGynH7dAF`）仲係 money-tools，公開當日照上面第 3 步改。
