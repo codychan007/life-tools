@@ -10,7 +10,8 @@
 ## A. 自願醫保靈活計劃（醫療）
 
 1. 下載官方清單 https://www.vhis.gov.hk/public/data/flexi-plans.json（公開、唔使登入）。
-2. 同 `data/medical/plans.json` 比較（每個計劃 `certNo`；每個選項 `variants[].certNo` 同 `variants[].sourceUrl` 官方保費 PDF）：
+2. 同 `data/medical/plans.json` 比較（每個計劃 `certNo`；每個選項 `variants[].certNo` 同 `variants[].sourceUrl` 官方保費 PDF）。
+   **注意**：網站**只收港元（HKD）選項**，美元／其他貨幣選項係刻意唔收，唔好當「新選項」報；另外 2026-11 有 13 個港元選項因為保費 PDF 版面讀唔到而冇收（Zurich 8、BOC Life 4、FWD 1），都唔使當新選項報，除非佢哋嘅保費 PDF 連結變咗。只報**港元**選項嘅變動：
    - 官方有、我哋冇嘅計劃或選項 → **新計劃／新選項**
    - 我哋有、官方冇 → **可能已停售**
    - 同一個選項，官方保費 PDF 連結（檔名／日期）唔同咗 → **保費可能已更新**
