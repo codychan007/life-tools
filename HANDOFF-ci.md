@@ -80,3 +80,4 @@
 - repo：codychan007/life-tools（Private），首次上載 dd55869（main）。之後改完：`git add -A && git commit && git push`。
 - 下一步：Cody 做 GitHub 設定（第 2 部分）同 Cloudflare 項目 codychan-life（第 3 部分），步驟喺 `../人生規劃通-上線步驟.md`。
 - 2026-11-06：Cloudflare Pages 項目 codychan-life 上咗網（預覽版）https://codychan-life.pages.dev ，push main 就自動部署。
+- 2026-11-06：安盛 9 張卡嘅資料來自 prismic PDF（robots.txt 禁止 *.pdf）；Cody 決定保持現狀。以後唔好再下載安盛 PDF，更新只用 www.axa.com.hk 網頁。
