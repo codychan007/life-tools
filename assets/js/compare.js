@@ -53,7 +53,7 @@ async function init() {
 // 醫療：每個計劃整理成統一格式（variants = 可揀嘅選項）
 // ------------------------------------------------------------
 const wardName = w => ({ standard: t('標準（普通房）', 'Standard (ward)'), 'semi-private': t('半私家', 'Semi-private'), private: t('私家', 'Private'), any: t('條款冇指定病房', 'No ward specified') }[w] || w);
-const limitText = v => (v === 'none' ? t('不設', 'None') : typeof v === 'number' ? money(v) : t('見條款', 'See terms'));
+const limitText = v => (v === 'none' ? t('不設', 'None') : typeof v === 'number' ? money(v) : v && typeof v === 'object' ? esc(L(v)) : t('見條款', 'See terms'));   // object = 文字說明（例如按年齡分開）
 
 function stdPlans() {
   // 同一個認可編號嘅獨立保單／附加契約 合併做一個計劃，用選項揀
@@ -163,7 +163,7 @@ function sortPlans(items, sortBy) {
   };
   const by = {
     name, premium: num(i => i.premium(S.age)), 'premium-desc': num(i => i.premium(S.age), -1),
-    limit: num(i => i.annualLimit, -1), total: num(i => i.total), cap: num(i => i.plan.totalCapPct, -1),
+    limit: num(i => (typeof i.annualLimit === 'number' ? i.annualLimit : i.annualLimit === 'none' ? Infinity : null), -1), total: num(i => i.total), cap: num(i => i.plan.totalCapPct, -1),
   }[sortBy] || name;
   return [...items].sort(by);
 }

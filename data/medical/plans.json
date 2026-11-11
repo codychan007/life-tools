@@ -1,5 +1,5 @@
 {
- "_說明": "由醫保網站官方保費 PDF 及條款自動抽取（scripts/flexi/）。2026-11-05 經 Cody 抽查核實。ward: any = 條款冇指定受保病房（見 roomLimit）；annualLimit／lifetimeLimit：數字、\"none\"（不設）或 null（見條款）。",
+ "_說明": "由醫保網站官方保費 PDF 及條款自動抽取（scripts/flexi/）。2026-11-05 經 Cody 抽查核實。ward: any = 條款冇指定受保病房（見 roomLimit）；annualLimit／lifetimeLimit：數字、\"none\"（不設）或 null（見條款）。2026-11-11 已用醫保網站官方條款（Benefit Schedule）逐個選項核對每年及終身保障限額；annualLimit 亦可以係 {zh,en} 文字（例如按年齡分開）。",
  "plans": [
   {
    "id": "vhis-f00022-0",
@@ -604,7 +604,7 @@
     "zh": "每日$1,200",
     "en": "$1,200 a day"
    },
-   "annualLimit": null,
+   "annualLimit": 650000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -659,7 +659,7 @@
     "zh": "每日$1,200",
     "en": "$1,200 a day"
    },
-   "annualLimit": null,
+   "annualLimit": 650000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -714,7 +714,7 @@
     "zh": "每日$800",
     "en": "$800 a day"
    },
-   "annualLimit": null,
+   "annualLimit": 500000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -769,7 +769,7 @@
     "zh": "每日$800",
     "en": "$800 a day"
    },
-   "annualLimit": null,
+   "annualLimit": 500000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -824,7 +824,7 @@
     "zh": "每日$800",
     "en": "$800 a day"
    },
-   "annualLimit": null,
+   "annualLimit": 500000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -879,8 +879,8 @@
     "zh": "見條款",
     "en": "See terms"
    },
-   "annualLimit": null,
-   "lifetimeLimit": null,
+   "annualLimit": 5000000,
+   "lifetimeLimit": "none",
    "features": {
     "zh": [],
     "en": []
@@ -966,8 +966,8 @@
     "zh": "見條款",
     "en": "See terms"
    },
-   "annualLimit": null,
-   "lifetimeLimit": null,
+   "annualLimit": 25000000,
+   "lifetimeLimit": "none",
    "features": {
     "zh": [],
     "en": []
@@ -1053,8 +1053,8 @@
     "zh": "見條款",
     "en": "See terms"
    },
-   "annualLimit": null,
-   "lifetimeLimit": null,
+   "annualLimit": 30000000,
+   "lifetimeLimit": "none",
    "features": {
     "zh": [],
     "en": []
@@ -1141,7 +1141,7 @@
     "en": "See terms"
    },
    "annualLimit": 40000000,
-   "lifetimeLimit": null,
+   "lifetimeLimit": "none",
    "features": {
     "zh": [],
     "en": []
@@ -1887,7 +1887,10 @@
     "zh": "每日$1,450",
     "en": "$1,450 a day"
    },
-   "annualLimit": 450000,
+   "annualLimit": {
+    "zh": "76 歲以下不設；76 歲或以上 $450,000",
+    "en": "None under age 76; $450,000 from age 76"
+   },
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -1942,7 +1945,10 @@
     "zh": "每日$1,450",
     "en": "$1,450 a day"
    },
-   "annualLimit": 450000,
+   "annualLimit": {
+    "zh": "76 歲以下不設；76 歲或以上 $450,000",
+    "en": "None under age 76; $450,000 from age 76"
+   },
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -1997,7 +2003,10 @@
     "zh": "每日$1,450",
     "en": "$1,450 a day"
    },
-   "annualLimit": 450000,
+   "annualLimit": {
+    "zh": "76 歲以下不設；76 歲或以上 $450,000",
+    "en": "None under age 76; $450,000 from age 76"
+   },
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -2052,7 +2061,10 @@
     "zh": "每日$1,450",
     "en": "$1,450 a day"
    },
-   "annualLimit": 450000,
+   "annualLimit": {
+    "zh": "76 歲以下不設；76 歲或以上 $450,000",
+    "en": "None under age 76; $450,000 from age 76"
+   },
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -2107,7 +2119,10 @@
     "zh": "每日$1,450",
     "en": "$1,450 a day"
    },
-   "annualLimit": 450000,
+   "annualLimit": {
+    "zh": "76 歲以下不設；76 歲或以上 $450,000",
+    "en": "None under age 76; $450,000 from age 76"
+   },
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -2162,7 +2177,10 @@
     "zh": "每日$1,450",
     "en": "$1,450 a day"
    },
-   "annualLimit": 450000,
+   "annualLimit": {
+    "zh": "76 歲以下不設；76 歲或以上 $450,000",
+    "en": "None under age 76; $450,000 from age 76"
+   },
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -2217,7 +2235,10 @@
     "zh": "每日$1,450",
     "en": "$1,450 a day"
    },
-   "annualLimit": 450000,
+   "annualLimit": {
+    "zh": "76 歲以下不設；76 歲或以上 $450,000",
+    "en": "None under age 76; $450,000 from age 76"
+   },
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -2272,7 +2293,10 @@
     "zh": "每日$1,450",
     "en": "$1,450 a day"
    },
-   "annualLimit": 450000,
+   "annualLimit": {
+    "zh": "76 歲以下不設；76 歲或以上 $450,000",
+    "en": "None under age 76; $450,000 from age 76"
+   },
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -2328,7 +2352,7 @@
     "en": "Paid in full"
    },
    "annualLimit": 10000000,
-   "lifetimeLimit": null,
+   "lifetimeLimit": 48000000,
    "features": {
     "zh": [],
     "en": []
@@ -2519,7 +2543,7 @@
     "en": "Paid in full"
    },
    "annualLimit": 6000000,
-   "lifetimeLimit": null,
+   "lifetimeLimit": 40000000,
    "features": {
     "zh": [],
     "en": []
@@ -2709,7 +2733,10 @@
     "zh": "每日$800",
     "en": "$800 a day"
    },
-   "annualLimit": 450000,
+   "annualLimit": {
+    "zh": "75 歲以下不設；75 歲或以上 $450,000",
+    "en": "None under age 75; $450,000 from age 75"
+   },
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -2764,7 +2791,10 @@
     "zh": "每日$800",
     "en": "$800 a day"
    },
-   "annualLimit": 510000,
+   "annualLimit": {
+    "zh": "75 歲以下不設；75 歲或以上 $510,000",
+    "en": "None under age 75; $510,000 from age 75"
+   },
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -2819,7 +2849,10 @@
     "zh": "每日$1,550",
     "en": "$1,550 a day"
    },
-   "annualLimit": 530000,
+   "annualLimit": {
+    "zh": "75 歲以下不設；75 歲或以上 $530,000",
+    "en": "None under age 75; $530,000 from age 75"
+   },
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -2874,7 +2907,10 @@
     "zh": "每日$1,550",
     "en": "$1,550 a day"
    },
-   "annualLimit": 650000,
+   "annualLimit": {
+    "zh": "75 歲以下不設；75 歲或以上 $650,000",
+    "en": "None under age 75; $650,000 from age 75"
+   },
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -2929,7 +2965,10 @@
     "zh": "每日$2,880",
     "en": "$2,880 a day"
    },
-   "annualLimit": 670000,
+   "annualLimit": {
+    "zh": "75 歲以下不設；75 歲或以上 $670,000",
+    "en": "None under age 75; $670,000 from age 75"
+   },
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -2984,7 +3023,10 @@
     "zh": "每日$2,880",
     "en": "$2,880 a day"
    },
-   "annualLimit": 870000,
+   "annualLimit": {
+    "zh": "75 歲以下不設；75 歲或以上 $870,000",
+    "en": "None under age 75; $870,000 from age 75"
+   },
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -5044,7 +5086,7 @@
     "en": "Paid in full"
    },
    "annualLimit": 25000000,
-   "lifetimeLimit": null,
+   "lifetimeLimit": 100000000,
    "features": {
     "zh": [],
     "en": []
@@ -5102,7 +5144,7 @@
     "en": "Paid in full"
    },
    "annualLimit": 25000000,
-   "lifetimeLimit": null,
+   "lifetimeLimit": 100000000,
    "features": {
     "zh": [],
     "en": []
@@ -5160,7 +5202,7 @@
     "en": "Paid in full"
    },
    "annualLimit": 25000000,
-   "lifetimeLimit": null,
+   "lifetimeLimit": 100000000,
    "features": {
     "zh": [],
     "en": []
@@ -5218,7 +5260,7 @@
     "en": "Paid in full"
    },
    "annualLimit": 30000000,
-   "lifetimeLimit": null,
+   "lifetimeLimit": 120000000,
    "features": {
     "zh": [],
     "en": []
@@ -5276,7 +5318,7 @@
     "en": "Paid in full"
    },
    "annualLimit": 30000000,
-   "lifetimeLimit": null,
+   "lifetimeLimit": 120000000,
    "features": {
     "zh": [],
     "en": []
@@ -5334,7 +5376,7 @@
     "en": "Paid in full"
    },
    "annualLimit": 30000000,
-   "lifetimeLimit": null,
+   "lifetimeLimit": 120000000,
    "features": {
     "zh": [],
     "en": []
@@ -5392,7 +5434,7 @@
     "en": "Paid in full"
    },
    "annualLimit": 30000000,
-   "lifetimeLimit": null,
+   "lifetimeLimit": 120000000,
    "features": {
     "zh": [],
     "en": []
@@ -5449,7 +5491,7 @@
     "zh": "全數賠償",
     "en": "Paid in full"
    },
-   "annualLimit": null,
+   "annualLimit": "none",
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -5504,7 +5546,7 @@
     "zh": "全數賠償",
     "en": "Paid in full"
    },
-   "annualLimit": null,
+   "annualLimit": "none",
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -5559,7 +5601,7 @@
     "zh": "每日$1,200",
     "en": "$1,200 a day"
    },
-   "annualLimit": null,
+   "annualLimit": "none",
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -5614,7 +5656,7 @@
     "zh": "每日$1,200",
     "en": "$1,200 a day"
    },
-   "annualLimit": null,
+   "annualLimit": "none",
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -5669,7 +5711,7 @@
     "zh": "每日$2,300",
     "en": "$2,300 a day"
    },
-   "annualLimit": null,
+   "annualLimit": "none",
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -5724,7 +5766,7 @@
     "zh": "每日$5,200",
     "en": "$5,200 a day"
    },
-   "annualLimit": null,
+   "annualLimit": "none",
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -6164,7 +6206,7 @@
     "zh": "每日 $4,000",
     "en": "$4,000 a day"
    },
-   "annualLimit": null,
+   "annualLimit": 1000000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -6730,7 +6772,7 @@
     "zh": "全數賠償",
     "en": "Paid in full"
    },
-   "annualLimit": null,
+   "annualLimit": 5000000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -6817,8 +6859,8 @@
     "zh": "全數賠償",
     "en": "Paid in full"
    },
-   "annualLimit": null,
-   "lifetimeLimit": null,
+   "annualLimit": 8000000,
+   "lifetimeLimit": "none",
    "features": {
     "zh": [],
     "en": []
@@ -6953,7 +6995,7 @@
     "en": "Paid in full"
    },
    "annualLimit": "none",
-   "lifetimeLimit": null,
+   "lifetimeLimit": "none",
    "features": {
     "zh": [],
     "en": []
@@ -7008,7 +7050,7 @@
     "en": "Paid in full"
    },
    "annualLimit": "none",
-   "lifetimeLimit": null,
+   "lifetimeLimit": "none",
    "features": {
     "zh": [],
     "en": []
@@ -7062,8 +7104,8 @@
     "zh": "每日$ 850",
     "en": "$850 a day"
    },
-   "annualLimit": null,
-   "lifetimeLimit": null,
+   "annualLimit": 520000,
+   "lifetimeLimit": "none",
    "features": {
     "zh": [],
     "en": []
@@ -7118,7 +7160,7 @@
     "en": "$1,000 a day"
    },
    "annualLimit": "none",
-   "lifetimeLimit": null,
+   "lifetimeLimit": "none",
    "features": {
     "zh": [],
     "en": []
@@ -7173,7 +7215,7 @@
     "en": "Paid in full"
    },
    "annualLimit": 16500000,
-   "lifetimeLimit": null,
+   "lifetimeLimit": "none",
    "features": {
     "zh": [],
     "en": []
@@ -7308,7 +7350,7 @@
     "en": "Paid in full"
    },
    "annualLimit": 15000000,
-   "lifetimeLimit": null,
+   "lifetimeLimit": "none",
    "features": {
     "zh": [],
     "en": []
@@ -7443,7 +7485,7 @@
     "en": "Paid in full"
    },
    "annualLimit": 18500000,
-   "lifetimeLimit": null,
+   "lifetimeLimit": "none",
    "features": {
     "zh": [],
     "en": []
@@ -7577,8 +7619,8 @@
     "zh": "全數賠償",
     "en": "Paid in full"
    },
-   "annualLimit": null,
-   "lifetimeLimit": null,
+   "annualLimit": 12000000,
+   "lifetimeLimit": "none",
    "features": {
     "zh": [],
     "en": []
@@ -7712,8 +7754,8 @@
     "zh": "全數賠償",
     "en": "Paid in full"
    },
-   "annualLimit": null,
-   "lifetimeLimit": null,
+   "annualLimit": 35000000,
+   "lifetimeLimit": "none",
    "features": {
     "zh": [],
     "en": []
@@ -7847,8 +7889,8 @@
     "zh": "全數賠償",
     "en": "Paid in full"
    },
-   "annualLimit": null,
-   "lifetimeLimit": null,
+   "annualLimit": 16000000,
+   "lifetimeLimit": "none",
    "features": {
     "zh": [],
     "en": []
@@ -7982,8 +8024,8 @@
     "zh": "全數賠償",
     "en": "Paid in full"
    },
-   "annualLimit": null,
-   "lifetimeLimit": null,
+   "annualLimit": 20000000,
+   "lifetimeLimit": "none",
    "features": {
     "zh": [],
     "en": []
@@ -8392,7 +8434,7 @@
     "zh": "每日 $4,000",
     "en": "$4,000 a day"
    },
-   "annualLimit": null,
+   "annualLimit": 1200000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -8448,7 +8490,7 @@
     "en": "See terms"
    },
    "annualLimit": 5000000,
-   "lifetimeLimit": "none",
+   "lifetimeLimit": 20000000,
    "features": {
     "zh": [],
     "en": []
@@ -9073,7 +9115,7 @@
     "en": "See terms"
    },
    "annualLimit": 5000000,
-   "lifetimeLimit": "none",
+   "lifetimeLimit": 20000000,
    "features": {
     "zh": [],
     "en": []
@@ -9587,7 +9629,7 @@
     "zh": "每日$1,000",
     "en": "$1,000 a day"
    },
-   "annualLimit": null,
+   "annualLimit": 500000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -9642,7 +9684,7 @@
     "zh": "每日$1,000",
     "en": "$1,000 a day"
    },
-   "annualLimit": null,
+   "annualLimit": 500000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -9697,7 +9739,7 @@
     "zh": "每日$1,350",
     "en": "$1,350 a day"
    },
-   "annualLimit": null,
+   "annualLimit": 1000000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -9752,7 +9794,7 @@
     "zh": "每日$1,350",
     "en": "$1,350 a day"
    },
-   "annualLimit": null,
+   "annualLimit": 1000000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -9807,7 +9849,7 @@
     "zh": "見條款",
     "en": "See terms"
    },
-   "annualLimit": null,
+   "annualLimit": 2000000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -11943,7 +11985,7 @@
     "en": "Paid in full"
    },
    "annualLimit": 12000000,
-   "lifetimeLimit": null,
+   "lifetimeLimit": 56000000,
    "features": {
     "zh": [],
     "en": []
@@ -12346,8 +12388,8 @@
     "zh": "全數賠償",
     "en": "Paid in full"
    },
-   "annualLimit": null,
-   "lifetimeLimit": null,
+   "annualLimit": 10000000,
+   "lifetimeLimit": 40000000,
    "features": {
     "zh": [],
     "en": []
@@ -12449,7 +12491,7 @@
     "zh": "每日 $1,000",
     "en": "$1,000 a day"
    },
-   "annualLimit": null,
+   "annualLimit": 600000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -12504,7 +12546,7 @@
     "zh": "每日 $2,200",
     "en": "$2,200 a day"
    },
-   "annualLimit": null,
+   "annualLimit": 800000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -12559,7 +12601,7 @@
     "zh": "每日 $4,000",
     "en": "$4,000 a day"
    },
-   "annualLimit": null,
+   "annualLimit": 1200000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
