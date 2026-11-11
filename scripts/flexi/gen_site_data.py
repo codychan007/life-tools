@@ -26,6 +26,8 @@ def pick_annual(w):
     vals = sorted(set(vals))
     if w.get("annualNone") and not vals:
         return "none"
+    if vals == [420000]:                           # 只搵到標準計劃部分嘅 $420,000，唔係成個計劃嘅限額 → 見條款
+        return None
     if len(vals) == 1:
         return vals[0]
     if len(vals) == 2 and 420000 in vals:          # 420,000 係標準計劃部分

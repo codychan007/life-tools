@@ -184,8 +184,8 @@
     "zh": "全數賠償",
     "en": "Paid in full"
    },
-   "annualLimit": 420000,
-   "lifetimeLimit": "none",
+   "annualLimit": 12000000,
+   "lifetimeLimit": 60000000,
    "features": {
     "zh": [],
     "en": []
@@ -6219,7 +6219,7 @@
     "zh": "全數賠償",
     "en": "Paid in full"
    },
-   "annualLimit": 420000,
+   "annualLimit": 10000000,
    "lifetimeLimit": "none",
    "features": {
     "zh": [],
@@ -6338,7 +6338,8 @@
      "monthlyOnly": false,
      "unisex": true,
      "smokerRated": true,
-     "certNo": "F00075-06-000-02"
+     "certNo": "F00075-06-000-02",
+     "annualLimit": 15000000
     },
     {
      "id": "f00075-07-000-02",
@@ -6357,7 +6358,8 @@
      "monthlyOnly": false,
      "unisex": true,
      "smokerRated": true,
-     "certNo": "F00075-07-000-02"
+     "certNo": "F00075-07-000-02",
+     "annualLimit": 15000000
     },
     {
      "id": "f00075-08-000-02",
@@ -6376,7 +6378,8 @@
      "monthlyOnly": false,
      "unisex": true,
      "smokerRated": true,
-     "certNo": "F00075-08-000-02"
+     "certNo": "F00075-08-000-02",
+     "annualLimit": 15000000
     },
     {
      "id": "f00075-09-000-02",
@@ -6395,7 +6398,8 @@
      "monthlyOnly": false,
      "unisex": true,
      "smokerRated": true,
-     "certNo": "F00075-09-000-02"
+     "certNo": "F00075-09-000-02",
+     "annualLimit": 15000000
     },
     {
      "id": "f00075-10-000-02",
@@ -6414,7 +6418,8 @@
      "monthlyOnly": false,
      "unisex": true,
      "smokerRated": true,
-     "certNo": "F00075-10-000-02"
+     "certNo": "F00075-10-000-02",
+     "annualLimit": 15000000
     }
    ],
    "planDocUrl": {

@@ -117,7 +117,8 @@ function currentVariant(pl) {
 
 function medPlans() {
   const all = [...stdPlans(), ...otherPlans()];
-  return all.map(pl => ({ ...pl, v: currentVariant(pl) }))
+  return all.map(pl => { const v = currentVariant(pl), r = v?.raw || {};   // 個別選項（例如保障地區）可以有自己嘅限額
+    return { ...pl, v, annualLimit: r.annualLimit ?? pl.annualLimit, lifetimeLimit: r.lifetimeLimit ?? pl.lifetimeLimit }; })
     .filter(pl => pl.v && (S.ward === 'all' || pl.ward === S.ward))
     .map(pl => ({ ...pl, premium: a => pl.v.premium(a) }));
 }
