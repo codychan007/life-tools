@@ -68,6 +68,14 @@ row('預設選項：上限 $0 → 亞洲 $0', 0, P.pickVariant(vs, 0).deductible
   row('退休：30 歲、65 退休、每月 $15,000、回報 5%：所需（取整）', 10079868, Math.round(r.need));
   row('退休：預計累積（取整）', 3322759, Math.round(r.acc));
   row('退休：每月需額外儲（取整）', 6096, Math.round(r.perMonth));
+  const RP = { age: 30, retireAge: 65, endAge: 90, monthlySpend: 15000, inflation: 0.025, postReturn: 0.03, ret: 0.05, mpfBalance: 100000, otherAssets: 0, mpfMonthly: 2500, extraMonthly: 0 };
+  const LV = RT.gapLevers(RP);
+  row('退休：錢用到幾多歲（同上例子）', 72, r.runOut);
+  row('退休：每月多儲補足缺口後，錢用到目標 90 歲', 90, RT.retirePlan(RT.applyLevers(RP, { add: r.perMonth })).runOut);
+  row('退休：補缺口方法：延遲退休到', 79, LV.laterAge);
+  row('退休：補缺口方法：每月開支減到（取整）', 4945, Math.round(LV.spendTo));
+  row('退休：醫療開支 $12,000／年、醫療通脹 6%、35 年後退休 1 年（取整）', 92233, Math.round(RT.retireNeed({ ...RP, monthlySpend: 0, medicalYearly: 12000, medInflation: 0.06, endAge: 66 }).med));
+  row('退休：詳細模式：月薪 $25,000、每年加 3%、2 年強積金供款（回報 0）', 60900, RT.project({ age: 30, retireAge: 32, ret: 0, salary: 25000, mpf: ST.mpf, growth: 0.03 }).acc);
   row('醫療儲備：最高缺口分數', 10, RS.gapScore({ group: 'no', personal: 'none', ci: 'none', dependants: 'yes', fund: 'lt3' }, AS.reserve).score);
   row('醫療儲備：基本醫保墊底 $25,000＋半私家＋冇危疾＋月入 1.5–3 萬', 122500, RS.reserveFund({ personal: 'basic', deductible: 25000, pref: 'semi', ci: 'none', income: '15to30k' }, AS.reserve).total);
 })();

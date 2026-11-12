@@ -66,6 +66,20 @@
    95
   ],
   "postReturn": 0.03,
-  "defaultRetireAge": 65
+  "defaultRetireAge": 65,
+  "medInflation": 0.06,
+  "medInflationOptions": [
+   0.04,
+   0.06,
+   0.09
+  ],
+  "medNote": "退休醫療開支嘅長期升幅（規劃假設）。顧問公司短期預測香港醫療成本每年升約 9%（見 data/insurance.json），但幾十年都咁升無人知，所以預設 6%，用家可以揀 4% / 6% / 9%。2026-11-12 Claude 預設，待 Cody 確認",
+  "growthOptions": [
+   0,
+   0.02,
+   0.03,
+   0.04
+  ],
+  "growthNote": "詳細模式：人工／供款每年增長（用家揀）；強積金法定上下限唔假設會加"
  }
 }

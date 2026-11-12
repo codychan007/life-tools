@@ -5,7 +5,8 @@
 //   { key, q, help, type: 'money' | 'number', min, max, def: ans => 預設值, optional: true, unit }
 //   { key, q, help, type: 'counts', fields: [[key, 標籤, max]] }   // 同一頁幾個加減數
 //   when: ans => 布林值（唔符合就跳過呢題）；q／help 可以係 ans => 字串
-// wizard(box, questions, onDone(ans, api))；api.edit() 返去最後一題、api.restart()
+// wizard(box, questions, onDone(ans, api), init, onlyNew)；api.edit() 返去最後一題、api.restart()
+// onlyNew = true：只問 init 未答過嘅題目（例如由簡易轉詳細模式）
 // ============================================================
 import { t } from './i18n.js';
 import { esc } from './layout.js';
@@ -13,12 +14,12 @@ import { esc } from './layout.js';
 const nf = new Intl.NumberFormat('en-HK', { maximumFractionDigits: 0 });
 const parse = s => { const v = parseFloat(String(s).replace(/[^\d.-]/g, '')); return isFinite(v) ? v : null; };
 
-export function wizard(box, Q, onDone, init = {}) {
+export function wizard(box, Q, onDone, init = {}, onlyNew = false) {
   const ans = { ...init };
   let hist = [];          // 答過嘅題目 index（返回用）
   let i = 0;
 
-  const visible = k => !Q[k].when || Q[k].when(ans);
+  const visible = k => (!Q[k].when || Q[k].when(ans)) && !(onlyNew && Q[k].key in init);
   const nextIndex = from => { let k = from; while (k < Q.length && !visible(k)) k++; return k; };
   const total = () => Q.filter((_, k) => visible(k)).length;
 
@@ -91,7 +92,7 @@ export function wizard(box, Q, onDone, init = {}) {
   const api = {
     ans,
     edit: () => { i = hist.pop() ?? 0; render(); },
-    restart: () => { for (const k in ans) delete ans[k]; Object.assign(ans, init); hist = []; i = nextIndex(0); render(); },
+    restart: () => { for (const k in ans) delete ans[k]; if (!onlyNew) Object.assign(ans, init); onlyNew = false; hist = []; i = nextIndex(0); render(); },
   };
   i = nextIndex(0);
   render();
