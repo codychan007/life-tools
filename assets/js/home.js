@@ -2,9 +2,10 @@
 // 首頁「唔知由邊度開始？」：3 條問題 → 推薦先用邊個工具
 // 規則（改呢度就得）：
 //   擔心醫療 + 冇自己買醫保／唔肯定 → 醫療儲備規劃（先睇缺口）
-//   擔心醫療 + 已經有                → 醫療及危疾比較
+//   擔心醫療 + 已經有                → 保障資訊（睇病收費、醫療通脹）
 //   擔心退休 → 退休規劃；擔心交稅 → 姊妹網站「理財資訊通」嘅慳稅規劃（2026-11 搬咗過去）
-//   唔知 → 20 幾歲：醫療儲備；30 幾歲：醫療及危疾比較；40 歲或以上：退休
+//   唔知 → 20、30 幾歲：醫療儲備；40 歲或以上：退休
+//   （醫療及危疾比較 2026-11-15 改為顧問內部工具，公開網站冇咗）
 // 答案只喺你部機，唔會儲存或上傳。
 // ============================================================
 import { mountLayout } from './layout.js';
@@ -13,10 +14,10 @@ import { t, P } from './i18n.js';
 mountLayout();
 
 const TOOLS = {
-  compare: {
-    url: '/compare/', seal: '比', name: t('醫療及危疾比較', 'Medical & CI compare'),
-    why: t('你已經有醫保，下一步係睇清楚唔同計劃嘅保費、限額同條款，同埋保費隨年紀點升。',
-      'You already have medical cover. Next, see how plans differ on premiums, limits and terms, and how premiums rise with age.'),
+  insurance: {
+    url: '/insurance/', seal: '保', name: t('保障資訊', 'Protection facts'),
+    why: t('你已經有醫保，下一步睇清楚睇病、做手術要幾錢，醫療費每年升幾多，諗下保額夠唔夠。',
+      'You already have medical cover. Next, see what treatment and surgery cost, how fast medical costs rise, and whether your cover is enough.'),
   },
   reserve: {
     url: '/reserve/', seal: '備', name: t('醫療儲備規劃', 'Medical safety net'),
@@ -36,10 +37,10 @@ const TOOLS = {
 };
 
 export function recommend({ age, worry, own }) {
-  if (worry === 'medical') return own === 'yes' ? 'compare' : 'reserve';
+  if (worry === 'medical') return own === 'yes' ? 'insurance' : 'reserve';
   if (worry === 'retire') return 'retire';
   if (worry === 'tax') return 'tax';
-  return age === '20' ? 'reserve' : age === '30' ? 'compare' : 'retire';
+  return age === '20' || age === '30' ? 'reserve' : 'retire';
 }
 
 const box = document.getElementById('quiz');

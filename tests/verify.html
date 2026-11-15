@@ -43,16 +43,7 @@ row('危疾：30 歲供到 65 歲 = 35 年', 35, P.ciPayYears('to65', 30));
 row('自付費：可接受 $2 萬，選項 2.5 萬/5 萬/10 萬 → 冇（-1）', -1, P.pickDeductible([25000, 50000, 100000], 20000) ?? -1);
 row('自付費：可接受 $5 萬，選項 0/2 萬/5 萬 → 5 萬', 50000, P.pickDeductible([0, 20000, 50000], 50000));
 row('保費佔年薪：$30,000 ÷ ($25,000 × 12)', 0.1, P.shareOfSalary(30000, 25000));
-// 續保型危疾：每 N 年續保，期內保費不變（預期數字由另一個程式直接由 CSV 加總）
-const ciD = await (await fetch('/data/ci/plans.compiled.json', { cache: 'no-cache' })).json();
-const ciP = id => ciD.plans.find(p => p.id === id);
-if (ciP('aia-simple-care-essence')) {
-  row('危疾：AIA 簡護危疾保 男非吸煙 30→65 歲累計（每 5 年續保）', 576360, P.cumulative(a => P.ciRenewablePremium(ciP('aia-simple-care-essence'), 'M', false, 30, a), 30, 65).total);
-  row('危疾：AIA 簡護危疾保 32 歲投保、36 歲保費 = 32 歲費率', P.ciRenewablePremium(ciP('aia-simple-care-essence'), 'M', false, 32, 32), P.ciRenewablePremium(ciP('aia-simple-care-essence'), 'M', false, 32, 36));
-  row('危疾：保泰危疾保 男非吸煙 30→65 歲累計（每年續保）', 136716, P.cumulative(a => P.ciRenewablePremium(ciP('bowtie-term-ci'), 'M', false, 30, a), 30, 65).total);
-  row('危疾：保泰多重危疾保 女吸煙 25→65 歲累計', 292236, P.cumulative(a => P.ciRenewablePremium(ciP('bowtie-term-ci-multiple'), 'F', true, 25, a), 25, 65).total);
-  row('危疾：66 歲唔接受新投保（-1）', -1, P.ciRenewablePremium(ciP('bowtie-term-ci'), 'M', false, 66, 66) ?? -1);
-}
+// 續保型危疾例子：2026-11-15 隨醫療及危疾比較搬咗去顧問工具箱（advisor-tools/tests/compare.test.mjs）
 // 選項：同一保障地區入面，揀唔超過上限嘅最高自付費
 const vs = [{ id: 'a0', deductible: 0, area: { en: 'Asia' } }, { id: 'a16', deductible: 16000, area: { en: 'Asia' } }, { id: 'a50', deductible: 50000, area: { en: 'Asia' } }, { id: 'w0', deductible: 0, area: { en: 'Worldwide' } }];
 row('預設選項：上限 $2 萬 → 亞洲 $16,000', 16000, P.pickVariant(vs, 20000).deductible);

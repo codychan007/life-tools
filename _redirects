@@ -1,3 +1,7 @@
 # 慳稅規劃已搬去姊妹網站「理財資訊通」（2026-11）
 /tax/      https://codychan813.pages.dev/tax/     301
 /en/tax/   https://codychan813.pages.dev/en/tax/  301
+
+# 醫療及危疾比較已改為顧問內部工具（2026-11-15），公開網站唔再提供
+/compare/      /      301
+/en/compare/   /en/   301

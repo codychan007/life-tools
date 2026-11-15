@@ -49,10 +49,9 @@ SITE = {
            "sister": "HK Money Compass", "sister_label": "Sister site", "sister_desc": "Everyday money: saving, salary split, markets, card offers"},
 }
 
-# 目錄欄：實用資訊欄（撳開先見 4 個頁面，同理財資訊通一樣）｜姊妹網站｜預約傾談
+# 目錄欄：實用資訊欄（撳開先見 3 個頁面；醫療及危疾比較 2026-11-15 搬咗去顧問工具箱，同理財資訊通一樣）｜姊妹網站｜預約傾談
 # (路徑, 中文, 英文, 中文說明, 英文說明)
 NAV_GROUP = ("實用資訊欄", "Useful info", [
-    ("/compare/", "醫療及危疾比較", "Medical & CI compare", "保費、保障限額、危疾條款", "Premiums, limits, CI terms"),
     ("/reserve/", "醫療儲備", "Medical safety net", "保障缺口、要預留幾多", "Your gap and how much to set aside"),
     ("/retire/", "退休規劃", "Retirement", "要儲幾多、強積金夠唔夠", "How much you need, is MPF enough"),
     ("/insurance/", "保障資訊", "Protection facts", "醫療費、醫療通脹、政策", "Medical costs, inflation, policy"),
@@ -65,7 +64,7 @@ FOOTER_LINKS = NAV + [
 ]
 AVATAR_NAMES = ("avatar.jpg", "avatar.jpeg", "avatar.png", "avatar.webp")
 NOINDEX = set()
-EXCLUDE_TOP = {".git", ".github", ".claude", "dist", "scripts", "tests", "如何更新資料.md", "HANDOFF-ci.md", "給理財資訊通的連結卡.html", "__pycache__", "README.md"}
+EXCLUDE_TOP = {".git", ".github", ".claude", "dist", "scripts", "tests", "如何更新資料.md", "給理財資訊通的連結卡.html", "__pycache__", "README.md"}
 
 e = html.escape
 
@@ -393,61 +392,6 @@ def build_insurance(src, lang):
 
 
 # ------------------------------------------------------------------
-# 數據：將 plans.json + premiums/*.csv 合併成瀏覽器一次讀晒嘅 *.compiled.json
-# ------------------------------------------------------------------
-def read_csv(path):
-    import csv
-    with open(path, encoding="utf-8-sig", newline="") as f:
-        return list(csv.DictReader(f))
-
-
-def num(v):
-    v = (v or "").replace(",", "").strip()
-    return float(v) if v not in ("", "-") else None
-
-
-def compile_medical():
-    src = ROOT / "data" / "medical"
-    D = json.loads((src / "plans.json").read_text(encoding="utf-8"))
-    # 未核實（verified: false）嘅計劃：正式網站唔顯示；本機預覽用 SHOW_UNVERIFIED=1 先見到（會標「待核實」）
-    show_unverified = os.environ.get("SHOW_UNVERIFIED") == "1"
-    D["plans"] = [p for p in D["plans"] if p.get("verified") or show_unverified]
-    for p in D["plans"]:
-        for v in p["variants"]:
-            # CSV：entryFrom,entryTo,age,male_ns,male_s,female_ns,female_s（entryFrom/To = 投保年齡組；冇就當 0–100）
-            bands = {}
-            for r in read_csv(src / v["premiumFile"]):
-                a = int(r["age"])
-                if not 0 <= a <= 100:
-                    continue
-                key = (int(num(r.get("entryFrom")) or 0), int(num(r.get("entryTo")) if r.get("entryTo") else 100))
-                t = bands.setdefault(key, {k: [None] * 101 for k in ("male_ns", "male_s", "female_ns", "female_s")})
-                for k in t:
-                    t[k][a] = num(r.get(k))
-            v["bands"] = [{"from": lo, "to": hi, "premiums": t} for (lo, hi), t in sorted(bands.items())]
-    out = DIST / "data" / "medical" / "plans.compiled.json"
-    out.write_text(json.dumps(D, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-
-
-def compile_ci():
-    src = ROOT / "data" / "ci"
-    D = json.loads((src / "plans.json").read_text(encoding="utf-8"))
-    show_unverified = os.environ.get("SHOW_UNVERIFIED") == "1"
-    D["plans"] = [p for p in D["plans"] if p.get("verified") or show_unverified]
-    for p in D["plans"]:
-        # CSV：age,male_ns,male_s,female_ns,female_s,renewalOnly（該保額嘅年保費）
-        rates = {k: [None] * 101 for k in ("male_ns", "male_s", "female_ns", "female_s")}
-        if p.get("premiumFile"):
-            for r in read_csv(src / p["premiumFile"]):
-                a = int(r["age"])
-                if 0 <= a <= 100:
-                    for k in rates:
-                        rates[k][a] = num(r.get(k))
-        p["rates"] = rates
-    out = DIST / "data" / "ci" / "plans.compiled.json"
-    out.write_text(json.dumps(D, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-
-
 # ------------------------------------------------------------------
 def main():
     DIST.mkdir(exist_ok=True)
@@ -461,8 +405,6 @@ def main():
         else:
             shutil.copy2(item, DIST / item.name)
 
-    compile_medical()
-    compile_ci()
     if os.environ.get("INCLUDE_TESTS") == "1":   # 本機驗算用：INCLUDE_TESTS=1 python scripts/build.py
         shutil.copytree(ROOT / "tests", DIST / "tests")
 

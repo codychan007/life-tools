@@ -2,7 +2,7 @@
 // 工具二：醫療儲備規劃（一頁一題，唔問病歷；結果全部用規則＋模板）
 // 假設數字：data/assumptions.json → reserve（Cody 可以改）
 // ============================================================
-import { t, P } from './i18n.js';
+import { t } from './i18n.js';
 import { money, loadJSON, esc } from './layout.js';
 import { wizard } from './wizard.js';
 import { gapScore, reserveFund, median } from './calc/reserve.js';
@@ -22,7 +22,7 @@ const Q = [
     opts: [['none', t('冇', 'No')], ['basic', t('有，基本（例如自願醫保標準計劃）', 'Yes, basic (e.g. VHIS Standard Plan)')], ['premium', t('有，高端／全數賠償', 'Yes, high-end / full cover')]] },
   { key: 'deductible', when: a => a.personal !== 'none', q: t('你份醫保有冇墊底費（自付費）？', 'Does your plan have a deductible?'), type: 'options',
     opts: [['0', t('冇', 'No')], ['10000', t('$1 萬或以下', '$10,000 or less')], ['25000', t('大約 $2–3 萬', 'About $20,000–30,000')], ['50000', t('大約 $5 萬', 'About $50,000')], ['100000', t('$10 萬或以上', '$100,000 or more')], ['u', t('唔知', 'Not sure')]] },
-  { key: 'pref', q: t('如果要入院，你想住邊種病房？', 'If you need a hospital stay, which ward would you want?'), help: t('同工具一嘅病房級別一樣', 'Same ward levels as the compare tool'), type: 'options',
+  { key: 'pref', q: t('如果要入院，你想住邊種病房？', 'If you need a hospital stay, which ward would you want?'), type: 'options',
     opts: [['public', t('公立醫院', 'Public hospital')], ['semi', t('私家醫院半私家房', 'Private hospital, semi-private room')], ['private', t('私家醫院私家房', 'Private hospital, private room')]] },
   { key: 'ci', q: t('你有冇危疾保障？（確診一筆過賠嗰種）', 'Do you have critical illness cover? (Lump sum on diagnosis)'), type: 'options',
     opts: [['none', t('冇', 'No')], ['lt500k', t('有，少過 $50 萬', 'Yes, under $500,000')], ['500kto1m', t('有，$50 萬至 $100 萬', 'Yes, $500,000–1M')], ['gt1m', t('有，多過 $100 萬', 'Yes, over $1M')]] },
@@ -118,7 +118,7 @@ function result(a, api) {
           ${lateSum != null ? `<div class="stat"><span>${t(`${a.age + L} 歲買，供到 ${to} 歲累計`, `Buy at ${a.age + L}, total to ${to}`)}</span><b>${money(lateSum)}</b></div>` : ''}
         </div>
         <p style="font-size:14px">${t(`遲買累計可能少啲，因為少供 ${L} 年；但呢 ${L} 年冇保障，而且到時有新病可能唔受保或者要加費。`, `Buying later may total less because you pay ${L} fewer years, but you are unprotected for those years, and new conditions may be excluded or loaded.`)}</p>
-        <p class="muted" style="font-size:13px">${t(`按現行保費表計（截至 ${esc(STD.asOf)}），續保時保費可能調整。`, `Based on current premium tables (as of ${esc(STD.asOf)}); renewal premiums may change.`)} <a href="${P}/compare/">${t('去工具一睇各計劃 →', 'See plans in the compare tool →')}</a></p>
+        <p class="muted" style="font-size:13px">${t(`按現行保費表計（截至 ${esc(STD.asOf)}），續保時保費可能調整。`, `Based on current premium tables (as of ${esc(STD.asOf)}); renewal premiums may change.`)}</p>
       </div>` : ''}
 
       <div class="q-nav"><button type="button" class="btn secondary" data-edit>${t('← 改答案', '← Change answers')}</button>
